@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #19A7CE;
+  height: 16vh;
+  .logo {
+    margin-left: 20px;
+    img{
+      width: 40%;
+    }
+  }
+  width: 100%;
+  .nav {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    .navitems {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      li a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+          color: #b3b3b3;
+        }
+      }
+    }
+    .logButtons{
+      margin: 0 40px 0 20px;
+      Button{
+        background-color: #3f0086;
+        margin-left: 10px;
+        border-radius: 33px;
+        padding: 4px;
+        font-size: 13px;
+        width: 80px;
+        &:hover{
+          border: 1px solid white;
+          background-color: #19A7CE;
+        }
+      }
+    }
+  }
+}

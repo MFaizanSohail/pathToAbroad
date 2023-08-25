@@ -1,0 +1,47 @@
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .newstitle{
+        color: var(--container-bg, #146C94);
+        // font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        text-transform: uppercase;
+    }
+    .newsdesc{
+        color: var(--text, #5e5e5e);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.32px;
+    }
+    .inputfield{
+        display: flex;
+        height: 40px;
+        
+        .input{
+            width: 70%;
+            border: 2px solid #19A7CE;
+            outline: none;
+            font-size: 15px;
+        }
+        .subscribe{
+            width: 30%;
+            border: none;
+            outline: none;
+            background-color: #19A7CE;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            &:hover{
+                background-color: #01c7fd;
+            }
+        }
+    }
+
+}

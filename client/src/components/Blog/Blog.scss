@@ -1,0 +1,28 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .title {
+    color: #19a7ce;
+    font-weight: bold !important;
+    line-height: 1;
+  }
+  .tags {
+    Button {
+      margin-left: 10px;
+    }
+  }
+  .blogdetails {
+    display: flex;
+    gap: 30px;
+    .blogtext {
+      flex: 3;
+    }
+
+    .blogimg {
+      flex: 1;
+      width: 40%;
+      height: 40%;
+    }
+  }
+}

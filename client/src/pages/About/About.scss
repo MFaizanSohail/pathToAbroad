@@ -1,0 +1,27 @@
+.about-main{
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    gap: 5rem;
+    margin: 0 auto;
+    .about-content{
+        margin: 6rem 0;
+        padding: 1rem;
+        flex: 3;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        .about-head{
+            color: #146C94;
+        }
+        .about-desc{
+
+        }
+    }
+    .sidebar{
+        flex: 1;
+        margin-top: -7rem;
+    }
+}
