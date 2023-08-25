@@ -1,0 +1,27 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .env file (contains environment variables)
+.env
+
+
+# Ignore build and output files
+dist/
+build/
+out/
+
+# Ignore IDE and editor settings
+*.iml
+.vscode/
+.idea/
+
+# Ignore configuration files
+*.config.js
+
+# Ignore local development files
+tmp/
+.cache/
+
+# Ignore test and coverage files
+coverage/
+.nyc_output/
