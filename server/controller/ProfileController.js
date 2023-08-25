@@ -1,4 +1,4 @@
-const ProfileModel = require("./path/to/ProfileModel");
+const ProfileModel = require("../model/ProfileModel");
 
 const createProfile = async (req, res) => {
 	try {

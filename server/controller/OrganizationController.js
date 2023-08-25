@@ -1,4 +1,4 @@
-const OrganizationModel = require("./path/to/OrganizationModel"); // Adjust the path as needed
+const OrganizationModel = require("../model/OrganizationModel"); // Adjust the path as needed
 
 // Create a new organization
 const createOrganization = async (req, res) => {

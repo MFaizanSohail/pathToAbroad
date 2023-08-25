@@ -3,6 +3,7 @@ const userRouter = express.Router();
 const User = require("../controller/UserController");
 const profile = require("../controller/ProfileController"); 
 const Blog = require("../controller/BlogController");
+const Organizations = require("../controller/OrganizationController");
 
 // user Router for admin 
 userRouter.get("/", User.getAllUser);
@@ -24,11 +25,11 @@ userRouter.put("/updateBlog/:id", Blog.updateBlog);
 userRouter.delete("/BlogDelete/:id", Blog.blogDelete);
 
 // organizationsRouter for admin
-organizationsRouter.get("/", Organizations.getAllOrganizations);
-organizationsRouter.post("/create", Organizations.createOrganization);
-organizationsRouter.get("/getBlog/:id", Organizations.getOrganization);
-organizationsRouter.put("/updateBlog/:id", Organizations.updateOrganization);
-organizationsRouter.delete("/BlogDelete/:id", Organizations.deleteOrganization);
+userRouter.get("/", Organizations.getAllOrganizations);
+userRouter.post("/create", Organizations.createOrganization);
+userRouter.get("/getBlog/:id", Organizations.getOrganization);
+userRouter.put("/updateBlog/:id", Organizations.updateOrganization);
+userRouter.delete("/BlogDelete/:id", Organizations.deleteOrganization);
 
 
 module.exports = userRouter;
