@@ -1,4 +1,9 @@
 import "./App.scss";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom"; 
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Home from "./pages/Home/Home";
@@ -7,17 +12,13 @@ import Messagegreet from "./pages/Contact/Message_greet/Messagegreet";
 import About from "./pages/About/About";
 import Visa from "./pages/Visa/Visa";
 import University from "./pages/University/University";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
 import Singleblog from "./components/Singleblog/Singleblog";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Createblog from "./components/Createblog/Createblog";
 import Createuser from "./components/Createuser/Createuser";
 import Admindashboard from "./pages/Dashboard/Admindashboard";
 import Mobilenav from "./components/Mobilenav/Mobilenav";
+import MyEditor from "./components/MyEditor/MyEditor";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/visa" element={<Visa />} />
           <Route path="/about" element={<About />} />
           <Route path="/University" element={<University />} />
+          <Route path="/editor" element={<MyEditor />} />
           <Route path="/singleblog/:id" element={<Singleblog />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/createblog" element={<Createblog />} />
