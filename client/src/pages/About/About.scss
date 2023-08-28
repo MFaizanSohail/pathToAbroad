@@ -1,4 +1,6 @@
+@import '../../css-config//mixins.scss';
 .about-main{
+    overflow: hidden;
     display: flex;
     max-width: 1200px;
     align-items: center;
@@ -6,8 +8,14 @@
     text-align: justify;
     gap: 5rem;
     margin: 0 auto;
+    @include sm{
+        flex-direction: column;
+    }
     .about-content{
         margin: 6rem 0;
+        @include sm{
+            margin: 0;
+        }
         padding: 1rem;
         flex: 3;
         display: flex;
@@ -23,5 +31,9 @@
     .sidebar{
         flex: 1;
         margin-top: -7rem;
+        @include sm{
+            padding: 5px 10px;
+            margin-top: -3rem;
+        }
     }
 }

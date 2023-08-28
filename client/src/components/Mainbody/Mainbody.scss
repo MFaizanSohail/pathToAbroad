@@ -1,0 +1,7 @@
+@import '../../css-config//mixins.scss';
+.mainbody{
+    @include sm{
+        display: flex;
+        flex-direction: column;
+    }
+}

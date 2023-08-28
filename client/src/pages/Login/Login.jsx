@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { signUpSchema } from "../Signup/Schema";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [navigate,setNavigate]=useState(false)
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
-        name: "",
         email: "",
-        password: "",
-        confirm_password: "",
+        password: ""
       },
       validationSchema: signUpSchema,
       onSubmit: (values) => {
@@ -25,10 +25,8 @@ const Login = () => {
       <div className="formbody">
         <div className="formcover">
           <div className="leftside"><img src="/img/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg" alt="" /></div>
-          <form className="rightside" onSubmit={handleSubmit}>
-
-            <label htmlFor="email">Email Address</label>
-            <input autoFocus
+          <form className="rightside" onSubmit={handleSubmit}>            
+            <input placeholder="Email Address"
               id="email"
               name="email"
               type="email"
@@ -40,8 +38,7 @@ const Login = () => {
               <p className="form-error">{errors.email}</p>
             ) : null}
 
-            <label htmlFor="password">Password </label>
-            <input
+            <input placeholder="Enter Password" 
               id="password"
               name="password"
               type="password"
@@ -54,7 +51,7 @@ const Login = () => {
             ) : null}
 
             <button type="submit">Submit</button>
-            <label className="haveaccount">Dont have an account !</label>
+            <label className="haveaccount"><Link  to={'/signup'}>Dont have an account ! </Link></label>
           </form>
         </div>
       </div>

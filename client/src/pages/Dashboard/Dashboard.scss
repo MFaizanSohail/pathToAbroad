@@ -1,0 +1,133 @@
+.blogdashboard{
+
+    .verified{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -2.5rem;
+        margin-bottom: 3rem;
+        gap: 1rem;
+        font-size: 25px;
+    }
+
+    margin: 5rem 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .blogbtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        button{
+            width: 30%;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            height: 50px;
+            background-color: rgb(2, 127, 199);
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            &:hover{
+                border: 2px solid rgb(2, 127, 199);
+                background-color: white;
+                color: rgb(2, 127, 199);
+            }
+        }
+    }
+    .blogbody{
+        .blogfilters{
+            display: flex;
+            gap: 3rem;
+            // margin: 2rem 0; 
+            label{
+                width: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid gray;
+                outline: none;
+                height: 34px;
+                border-radius: 3px;
+                position: relative;
+                top: 1rem;
+                background-color: white;
+                &:nth-child(3){
+                    border-radius: 50%;
+                }
+                &:nth-child(4){
+                    border-radius: 50%;
+                }
+            }
+            .filter{
+                font-weight: bold;
+            }
+        }
+        .table{
+            border: 1px solid rgb(182, 182, 182);
+        }
+        .pagination{
+            display: flex;
+            margin: 3rem;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            span{
+                border: 1px solid rgb(126, 126, 126);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                padding: 5px;
+                cursor: pointer;
+                &:hover{
+                    opacity: .5;
+                }
+            }
+            &.pagination::after{
+                content: "";
+                width: 20rem;
+                height: 1px;
+                background-color: rgb(165, 164, 164);
+                position: absolute;
+                top: 3rem;
+                right: calc(50% - 10rem)
+            }        
+        }
+        
+         
+    }
+    #deletebtn{
+        background-color: red;
+        color: white;
+        border-radius: 14px;
+        font-size: 12px;
+        height: 35px;
+        margin-left: 1rem;
+        &:hover{
+            border: 1px solid red; 
+            font-weight: bold;
+            color: red;
+            background-color: white;
+        }
+    }
+    #edit{
+        background-color: #1976d2;
+        color: white;
+        border-radius: 14px;
+        font-size: 12px;
+        height: 35px;
+        &:hover{
+            border: 1px solid #1976d2; 
+            font-weight: bold;
+            color: #1976d2;
+            background-color: white;
+        }
+    }
+}

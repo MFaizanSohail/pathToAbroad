@@ -3,6 +3,7 @@ import "./Contact.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Messagegreet from "./Message_greet/Messagegreet";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -42,7 +43,7 @@ const Contact = () => {
             </label>
           </div>
           <div className="button">
-            <button className="submit">Submit</button>
+            <Link to='/messagegreet'><button className="submit">Submit</button></Link>
           </div>
         </div>
         <div className="right-contact">

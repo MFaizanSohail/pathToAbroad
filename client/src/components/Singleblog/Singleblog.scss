@@ -1,0 +1,82 @@
+@import '../../css-config//mixins.scss';
+.singleblog{
+    display: flex;
+    padding: 5rem 3rem;
+    gap: 3rem;
+    @include sm{
+        flex-direction:column;
+        padding: 4rem 2rem;
+    }
+    .myblog{
+        text-align: justify;
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        .title{
+            font-weight: bold;
+            margin: 1rem 0;
+            @include sm{
+                font-size:1.4rem;
+            }
+        }
+        .blogtags{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: -2rem;
+            @include sm{
+                font-size:15px;
+                height:1.8rem;
+                gap: .5rem;
+                Button{
+                    height:1.7rem;
+                    font-size:10px
+                }
+            }
+            
+        }
+        .blogauthor{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: -2rem;
+            color: darkgray;
+            font-size: 12px;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+
+        }
+        .blogimg{
+            img{
+                width: 100%;
+            }
+        }
+        .blogdesc{
+
+        }
+        .details{
+            .title{
+
+            }
+        }
+        .elegibility{
+            .title{
+
+            }
+        }
+        .howtoapply{
+
+        }
+        .deadline{
+            .para{
+
+            }
+        }
+    }
+    .sidebar{
+        flex: 1.4;
+    }
+}

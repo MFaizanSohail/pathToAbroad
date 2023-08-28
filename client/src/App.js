@@ -11,7 +11,13 @@ import {
   BrowserRouter as Router,
   Routes,
   Route
-} from "react-router-dom"; 
+} from "react-router-dom";
+import Singleblog from "./components/Singleblog/Singleblog";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Createblog from "./components/Createblog/Createblog";
+import Createuser from "./components/Createuser/Createuser";
+import Admindashboard from "./pages/Dashboard/Admindashboard";
+import Mobilenav from "./components/Mobilenav/Mobilenav";
 
 function App() {
   return (
@@ -26,6 +32,12 @@ function App() {
           <Route path="/visa" element={<Visa />} />
           <Route path="/about" element={<About />} />
           <Route path="/University" element={<University />} />
+          <Route path="/singleblog/:id" element={<Singleblog />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/createblog" element={<Createblog />} />
+          <Route path="/createuser" element={<Createuser />} />
+          <Route path="/admindashboard" element={<Admindashboard />} />
+          <Route path="/mobilenav" element={<Mobilenav />} />
         </Routes>
       </Router>
     </div>

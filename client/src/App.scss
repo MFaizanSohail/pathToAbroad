@@ -1,1 +1,6 @@
-
+@import './css-config/mixins.scss';
+@include sm{
+    ::-webkit-scrollbar{
+        display: none;
+    }
+}

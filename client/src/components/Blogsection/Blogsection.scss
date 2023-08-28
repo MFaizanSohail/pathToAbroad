@@ -1,5 +1,10 @@
+@import '../../css-config/mixins.scss';
 .blogsection{
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    @include sm{
+        gap: 3rem;
+    }
 }

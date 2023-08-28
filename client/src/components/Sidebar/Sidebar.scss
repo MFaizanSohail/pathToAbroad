@@ -1,7 +1,17 @@
+@import '../../css-config//mixins.scss';
 .sidebar{
     position: relative;
     gap: .2rem;
     display: flex;
     flex-direction: column; 
     margin-top: 3rem;
+    width: 100%;
+    @include sm{
+        margin-bottom: 7rem;
+    }
+    .newsletter{ 
+    @include sm{
+        display: none;
+    }
+}
 }

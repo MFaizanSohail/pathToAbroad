@@ -6,7 +6,7 @@ import Categories from '../Categories/Categories'
 const Sidebar = () => {
   return (
     <div className='sidebar'>
-      <Newsletter/>
+      <Newsletter className='newsletter'/>
       <Categories/>
     </div>
   )
