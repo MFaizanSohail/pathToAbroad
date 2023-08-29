@@ -3,24 +3,16 @@ import "./Navbar.scss";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Mobilenav from "../Mobilenav/Mobilenav";
+import Muinavbar from "../Muinavbar/Muinavbar";
 
 const Navbar = ({ signup }) => {
   const [login,setLogin]=useState(true)
-  const [mobileOpen,setMobileOpen]=useState(false)
-  const handleMobileOpen=()=>{
-    if(mobileOpen==true)
-    {
-      setMobileOpen(false)
-    }else{
-      setMobileOpen(true)
-    }
-  }
+  
   return (
     <Box>
-       <div className="hamburger" onClick={()=> handleMobileOpen()}><span></span><span></span><span></span></div>
-      {mobileOpen ==true ? <Mobilenav mobileOpen={mobileOpen} handleMobileOpen={handleMobileOpen}  className="mobilenav"/> :""}
       <AppBar position="static">
         <Toolbar className="navbar">
+          <Muinavbar/>
           <Typography className="logo" variant="h6" component="div">
             <Link to="/">
               <img src={"../../img/logowhite.png"} alt="" />
