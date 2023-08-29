@@ -16,9 +16,10 @@ import Singleblog from "./components/Singleblog/Singleblog";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Createblog from "./components/Createblog/Createblog";
 import Createuser from "./components/Createuser/Createuser";
-import Admindashboard from "./pages/Dashboard/Admindashboard";
+import Admindashboard from "./pages/Dashboard/Admindashboard/Admindashboard";
 import Mobilenav from "./components/Mobilenav/Mobilenav";
 import MyEditor from "./components/MyEditor/MyEditor";
+import BlogsTableMobileView from "./components/BlogsTableMobileView/BlogsTableMobileView";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/createuser" element={<Createuser />} />
           <Route path="/admindashboard" element={<Admindashboard />} />
           <Route path="/mobilenav" element={<Mobilenav />} />
+          <Route path="/blogtablemobileview" element={<BlogsTableMobileView />} />
         </Routes>
       </Router>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
 import {
   Button,
   Paper,
@@ -11,10 +11,11 @@ import {
   TableRow,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import Filters from '../../../components/Filters/Filters'
 
 const Admindashboard = () => {
   return (
-    <>
+    <> 
       <Navbar />
       <div className="blogdashboard">
         <div className="verified">
@@ -37,12 +38,13 @@ const Admindashboard = () => {
           </button>
         </div>
         <div style={{textAlign:'center'}}><h1>Latest Blogs</h1></div>
+        <Filters/>
         <div className="blogbody">
-          <div className="blogfilters">
+          {/* <div className="blogfilters">
             <div className="filter">Filters</div> <label>Title</label>
             <label>Country</label>
             <label>Status</label>
-          </div>
+          </div> */}
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">

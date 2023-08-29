@@ -44,7 +44,9 @@
         img {
           width: 250px;
           height: 140px;
-          
+          @include sm{
+            width: 100%;
+          }
         }
         .visa-title {
             margin-top: 10px;

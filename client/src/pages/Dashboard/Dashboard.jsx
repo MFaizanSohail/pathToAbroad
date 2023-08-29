@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "./Dashboard.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import {
+  Box,
   Button,
+  IconButton,
+  InputBase,
+  Menu,
+  MenuItem,
   Paper,
   Table,
   TableBody,
@@ -10,10 +15,16 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Tooltip,
+  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown/Dropdown";
+import Filters from "../../components/Filters/Filters";
+import BlogsTableMobileView from "../../components/BlogsTableMobileView/BlogsTableMobileView";
 
 const Dashboard = () => {
+  const [countyMenu, setCountyMenu] = useState(false);
   const [verified, setVerified] = useState(true);
   return (
     <>
@@ -44,12 +55,11 @@ const Dashboard = () => {
             <Link to={""}>View All Blogs</Link>
           </button>
         </div>
-        <div className="blogbody">
-          <div className="blogfilters">
-            <div className="filter">Filters</div> <label>Title</label>
-            <label>Country</label>
-            <label>Status</label>
-          </div>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <div className="blogbody"> 
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">

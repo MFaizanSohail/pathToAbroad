@@ -17,7 +17,7 @@ const Navbar = ({ signup }) => {
   }
   return (
     <Box>
-      {!mobileOpen && <div className="hamburger" onClick={()=> handleMobileOpen()}><span></span><span></span><span></span></div>}
+       <div className="hamburger" onClick={()=> handleMobileOpen()}><span></span><span></span><span></span></div>
       {mobileOpen ==true ? <Mobilenav mobileOpen={mobileOpen} handleMobileOpen={handleMobileOpen}  className="mobilenav"/> :""}
       <AppBar position="static">
         <Toolbar className="navbar">

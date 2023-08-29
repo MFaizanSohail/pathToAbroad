@@ -1,0 +1,28 @@
+.blogfilters {
+    display: flex;
+    margin-bottom: 1.5rem; 
+    gap: 3rem;
+    align-items: center;
+    .title{
+        display: flex;
+        gap: 2rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        align-items: center;
+        input{
+            width: 17rem; 
+            padding: 8px 12px;
+            border: 2px solid #1976d2; 
+        }
+        
+    }
+    .filterbtn{
+        display: flex; 
+        gap: 2rem;
+        .MuiAutocomplete-root{
+            height: 100%;
+            width: 16rem;
+            transform: scale(0.8); 
+        }
+    }
+}
