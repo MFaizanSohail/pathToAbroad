@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import Filters from '../../../components/Filters/Filters'
+import BlogsTableMobileView from "../../../components/BlogsTableMobileView/BlogsTableMobileView";
 
 const Admindashboard = () => {
   return (
@@ -39,12 +40,14 @@ const Admindashboard = () => {
         </div>
         <div style={{textAlign:'center'}}><h1>Latest Blogs</h1></div>
         <Filters/>
-        <div className="blogbody">
-          {/* <div className="blogfilters">
-            <div className="filter">Filters</div> <label>Title</label>
-            <label>Country</label>
-            <label>Status</label>
-          </div> */}
+        {/* MOBILE RESPOSIVE ADMIN DASHBOARD  */}
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <BlogsTableMobileView/>
+        <div className="blogbody"> 
+        {/* DESKTOP RESPONSIVE DASHBORAD  */}
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">

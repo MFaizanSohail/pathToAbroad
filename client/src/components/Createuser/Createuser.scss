@@ -1,0 +1,16 @@
+@import "../../css-config/mixins.scss";
+.blogdashboard {
+    .createuser{ 
+        h1{
+            color: #19a7ce;
+            font-size: 2.5rem;
+            font-weight: bold;
+        @include sm{
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+        }
+    }
+  .blogbody { 
+  }
+}

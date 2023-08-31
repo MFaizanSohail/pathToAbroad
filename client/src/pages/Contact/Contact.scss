@@ -7,7 +7,8 @@
   align-items: center;
   justify-content: center;
   @include sm{
-    margin: 4rem 0;
+    margin: 4rem 0; 
+    padding: 1.3rem;
   }
   .left-contact { 
     width: 40%;

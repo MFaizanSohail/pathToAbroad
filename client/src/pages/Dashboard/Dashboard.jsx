@@ -18,13 +18,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown/Dropdown";
+import { Link } from "react-router-dom"; 
 import Filters from "../../components/Filters/Filters";
 import BlogsTableMobileView from "../../components/BlogsTableMobileView/BlogsTableMobileView";
 
-const Dashboard = () => {
-  const [countyMenu, setCountyMenu] = useState(false);
+const Dashboard = () => { 
   const [verified, setVerified] = useState(true);
   return (
     <>
@@ -55,17 +53,22 @@ const Dashboard = () => {
             <Link to={""}>View All Blogs</Link>
           </button>
         </div>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
+        {/* MOBILE RESPONSIVE DASHBOARD  */}
+        <Filters/>
+        <BlogsTableMobileView/> 
+        <BlogsTableMobileView/> 
+        <BlogsTableMobileView/> 
+        <BlogsTableMobileView/> 
+        <BlogsTableMobileView/> 
+        <BlogsTableMobileView/> 
+
         <div className="blogbody"> 
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
+                <TableHead >
                   <TableRow>
-                    <TableCell sx={{ fontWeight: "bold", fontSize: "18px" }}>
+                    <TableCell sx={{ fontWeight: "bold", fontSize: "18px"}}>
                       Title
                     </TableCell>
                     <TableCell

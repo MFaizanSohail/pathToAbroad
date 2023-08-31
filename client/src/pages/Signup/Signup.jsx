@@ -5,9 +5,12 @@ import { signUpSchema } from "./Schema";
 import Navbar from "../../components/Navbar/Navbar";
 import Registered from "./Registered";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../rootReducer";
 
 const Signup = () => {
-  const [registered, setRegistered] = useState(false);
+  const { isAuthenticated } = useSelector((state) => state.root); 
+  const dispatch= useDispatch()
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -22,6 +25,7 @@ const Signup = () => {
         console.log(values);
       },
     });
+ 
   return (
     <div className="signupform">
       <div className="navbar">
@@ -32,7 +36,7 @@ const Signup = () => {
           <div className="leftside">
             <img src="/img/marissa-grootes-TVllFyGaLEA-unsplash.jpg" alt="" />
           </div>
-          {registered ? (
+          {isAuthenticated ? (
             <Registered />
           ) : (
             <form className="rightside" onSubmit={handleSubmit}>
@@ -89,7 +93,7 @@ const Signup = () => {
               ) : null}
 
               <button
-                type="submit" onClick={() => setRegistered(true)}
+                type="submit" onClick={() => dispatch({type:"login"})}
               >
                 Submit
               </button>

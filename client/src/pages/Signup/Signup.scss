@@ -2,7 +2,7 @@
 @import '../../css-config/mixins.scss';
 .signupform {
   .navbar {
-    height: 20vh;
+    // height: 20vh;
     .MuiPaper-root {
       box-shadow: none;
     }
@@ -28,9 +28,10 @@
       width: 45%;
       // border: 2px solid black;
       border-radius: 40px;
-      background-image: linear-gradient(to right, #144a58, #2ed2ff);
+      background-image: linear-gradient(to right, #068fb1, #2ed2ff);
       @include sm{
-        width: 90%;
+        width: 80%;
+        height: 50%;
       }
       .leftside {
         @include sm{
@@ -121,6 +122,11 @@
 
       //   SUCCESSFULLY REGISTERED ACCOUNT
       .Registered {
+        @include sm{
+          height: 100%;
+          width: 100%;
+          gap: 1rem;
+        }
         height: inherit;
         width: inherit;
         display: flex;

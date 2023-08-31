@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { useFormik } from "formik";
-import { signUpSchema } from "../Signup/Schema";
+import { useFormik } from "formik"; 
 import Navbar from "../../components/Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { loginSchema } from "./LoginSchema";
 
-const Login = () => {
-  const [navigate,setNavigate]=useState(false)
+const Login = () => { 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
         email: "",
         password: ""
       },
-      validationSchema: signUpSchema,
+      validationSchema: loginSchema,
       onSubmit: (values) => {
         console.log(values);
+        return <Navigate to={'/'}/>
       },
     });
   return (

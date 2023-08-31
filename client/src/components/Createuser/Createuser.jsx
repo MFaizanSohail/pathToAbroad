@@ -2,6 +2,7 @@ import React from 'react'
 import './Createuser.scss'
 import Navbar from '../Navbar/Navbar'
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import ResponsiveCreateUser from '../ResponsiveCreateUser/ResponsiveCreateUser'
 
 const Createuser = () => {
   return (
@@ -12,6 +13,11 @@ const Createuser = () => {
         <div className="createuser" style={{textAlign:'center', fontSize:'1.4rem'}}>
             <h1>User</h1>
         </div>
+        <ResponsiveCreateUser/>
+        <ResponsiveCreateUser/>
+        <ResponsiveCreateUser/>
+        <ResponsiveCreateUser/>
+        <ResponsiveCreateUser/>
         <div className="blogbody">
           <div className="blogfilters">
             <div className="filter">Filters</div> <label>Name</label>

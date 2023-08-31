@@ -1,10 +1,11 @@
 import React from "react";
 import "./BlogsTableMobileView.scss";
+import Filters from '../Filters/Filters'
 
 const BlogsTableMobileView = () => {
   return (
     <>
-      <div className="filterContainer">
+      <div className="filterContainer"> 
         <div className="container">
           <div className="title">
             <span>Lorem ipsum dolor sit amet.</span>

@@ -2,7 +2,7 @@
 .blogdashboard {
   @include sm {
     margin: 0;
-    padding: 0;
+    padding: 1rem;
   }
   .verified {
     @include sm {
@@ -69,7 +69,7 @@
     }
 
     .table {
-      border: 1px solid rgb(182, 182, 182);
+      border: 1px solid rgb(182, 182, 182);       
     }
     .pagination {
       display: flex;

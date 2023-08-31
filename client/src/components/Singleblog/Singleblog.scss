@@ -1,27 +1,28 @@
 @import '../../css-config//mixins.scss';
 .singleblog{
     display: flex;
-    padding: 5rem 3rem;
+    padding: 2rem 3rem;
     gap: 3rem;
     color: rgb(65, 65, 65);
     @include sm{
         flex-direction:column;
         padding: 1rem 2rem;
+        gap: 0;
     }
     .myblog{
         text-align: justify;
         flex: 4;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 2rem;
         @include sm{
-            gap: 2rem;
+            gap: 1.2rem;
         }
         .title{
             font-weight: bold;
             margin: 1rem 0;
             @include sm{
-                font-size:1.4rem;
+                font-size:18px;
                 margin: 0;
             }
         }

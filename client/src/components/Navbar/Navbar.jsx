@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import Mobilenav from "../Mobilenav/Mobilenav";
-import Muinavbar from "../Muinavbar/Muinavbar";
+import { Link } from "react-router-dom"; 
+import Muinavbar from "../Muinavbar/Muinavbar"; 
+import { useSelector } from "react-redux";
 
 const Navbar = ({ signup }) => {
-  const [login,setLogin]=useState(true)
+  // const [login,setLogin]=useState(true)
+  const {isAuthenticated}=useSelector((state)=> state.root)
   
   return (
     <Box>
@@ -38,12 +39,12 @@ const Navbar = ({ signup }) => {
                 <li>
                   <Link to="/contact">Contact us</Link>
                 </li>
-              {login && <>  <li>
+              {isAuthenticated && <>  <li>
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li><img className="profile" src="/img/contact.png" alt="" /></li></>}
               </ul>
-              {!login && <div className="logButtons">
+              {!isAuthenticated && <div className="logButtons">
                 <Button className="signup" color="inherit">
                   <Link to="/signup">Sign Up </Link>
                 </Button>

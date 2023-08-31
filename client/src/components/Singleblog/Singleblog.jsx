@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Singleblog.scss";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Sidebar from "../Sidebar/Sidebar";
 import { Button } from "@mui/material";
+import { useLocation } from "react-router-dom";
+import {data} from '../StaticData/data'
 
 const Singleblog = () => {
+  const location= useLocation()
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[location])
   return (
     <div>
       <Navbar />
@@ -150,8 +156,8 @@ const Singleblog = () => {
             </p>
           </div>
         </div>
-        <Sidebar className="sidebar" />
       </div>
+      <Sidebar className="sidebar" />
       <Footer />
     </div>
   );

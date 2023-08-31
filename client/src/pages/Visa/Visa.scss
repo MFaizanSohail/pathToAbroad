@@ -1,18 +1,21 @@
-@import '../../css-config/mixins.scss';
+@import "../../css-config/mixins.scss";
 .visa {
   overflow: hidden;
   display: flex;
   padding: 3rem 5rem;
   gap: 1rem;
-  @include sm{
+  @include sm {
     flex-direction: column;
-    padding: .8rem;
+    padding: 2rem;
   }
   .visa-content {
     flex: 4;
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+    @include sm {
+      margin-top: -3rem;
+    }
     .visa-country {
       margin-top: 3rem;
       color: #19a7ce;
@@ -24,41 +27,41 @@
       display: flex;
       gap: 1rem;
       Button {
-        @include sm{
+        @include sm {
           font-size: 10px;
         }
       }
     }
     .visa-policy {
-        display: flex;
-        gap: 30px;
-        @include sm{
-          flex-direction: column;
-          width: 100%;
-        }
+      display: flex;
+      gap: 30px;
+      @include sm {
+        flex-direction: column;
+        width: 100%;
+      }
       .policy {
-        @include sm{
+        @include sm {
           // width: 100%;
           text-align: center;
         }
         img {
           width: 250px;
           height: 140px;
-          @include sm{
+          @include sm {
             width: 100%;
           }
         }
         .visa-title {
-            margin-top: 10px;
+          margin-top: 10px;
           font-weight: bold;
         }
       }
     }
   }
   .sidebar {
-    flex: 1.4;
-    @include sm{
-      width: 100%;
-    }
+    // flex: 1.4;
+    // @include sm {
+    //   width: 100%;
+    // }
   }
 }

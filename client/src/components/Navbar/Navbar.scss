@@ -15,8 +15,10 @@
     img{
       width: 40%;
       @include sm{
-        width: 50%; 
-        margin-left: 20%;
+        width: 40%;
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
       }
     }
   }

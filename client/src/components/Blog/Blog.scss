@@ -8,24 +8,30 @@
     color: #19a7ce;
     font-weight: bold !important;
     line-height: 1;
+    font-size: 14px;
     @include sm{
-      font-size: 13px;
+      font-size: 9px;
     }
   }
   .tags {
     Button {
       margin-left: 6px;
-      font-size: 8px;
+      // font-size: 12px;
+      @include sm{
+        font-size: 8px;
+      }
     }
   }
   .blogdetails {
     display: flex;
     gap: 30px;
+    margin-bottom: 1rem;
     @include sm{
       flex-direction: column-reverse;
     }
     .blogtext {
       flex: 3;
+      text-align: justify;
     }
 
     .blogimg {
