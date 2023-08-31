@@ -156,8 +156,8 @@ const Singleblog = () => {
             </p>
           </div>
         </div>
-      </div>
       <Sidebar className="sidebar" />
+      </div>
       <Footer />
     </div>
   );

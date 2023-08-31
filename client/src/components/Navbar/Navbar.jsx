@@ -13,12 +13,12 @@ const Navbar = ({ signup }) => {
     <Box>
       <AppBar position="static">
         <Toolbar className="navbar">
-          <Muinavbar/>
-          <Typography className="logo" variant="h6" component="div">
+          <Muinavbar className="muinavbar"/>
+          <div className="logo">
             <Link to="/">
               <img src={"../../img/logowhite.png"} alt="" />
             </Link>
-          </Typography>
+          </div>
           {signup ? (
             <h1 className="signlog">{signup}</h1>
           ) : (

@@ -6,9 +6,9 @@ import Sidebar from '../Sidebar/Sidebar'
 
 const Mainbody = () => {
   return (
-    <Stack m={5} className="mainbody"
-      gap={3}
-      spacing={2} sx={{flexDirection:{xs:'column',sm:'row'},margin:{xs:'0',sm:5}}}
+    <Stack m={0} className="mainbody"
+      gap={13}
+      spacing={0} sx={{flexDirection:{xs:'column',sm:'row'},margin:{xs:'0',sm:5},gap:{sx:'0'}}}
     >
       <ListItem sx={{flex:3}}><Blogsection/></ListItem>
       <ListItem sx={{flex:1.1,height:'100%'}}><Sidebar/></ListItem>

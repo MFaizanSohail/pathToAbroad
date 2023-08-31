@@ -42,7 +42,7 @@ export default function Muinavbar() {
   );
 
   return (
-    <div> 
+    <div className="muinavbar"> 
       {mobileOpen == true ? (
         <Muinavbar
           mobileOpen={mobileOpen}
