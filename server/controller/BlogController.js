@@ -1,10 +1,32 @@
 const BlogModel = require("../model/BlogModel");
 
-const createBlog = (req, res) => {
-	BlogModel.create(req.body)
-		.then((blog) => res.json(blog))
-		.catch((err) => res.json(err));
-};
+const createBlog = async (req, res) => {
+	try {
+	  const { title, description, eligibility, details, applyingProcess, benefits, deadline, organization } = req.body;
+	  const imageUrl = []; 
+	  for (const file of req.files) {
+		const result = await cloudinary.uploader.upload(file.path);
+		imageUrl.push(result.secure_url);
+	  }
+	  const newBlog = new BlogModel({ 
+		title, 
+		description, 
+		eligibility, 
+		details, 
+		applyingProcess, 
+		benefits, 
+		deadline,
+		imageUrl, 
+		organization
+	  });
+	  await newBlog.save();
+	  
+	  res.status(201).json({ message: 'Blog Successfully Created!', blog: newBlog });
+	} catch (error) {
+	  console.error("Error creating blog:", error);
+	  res.status(500).json({ message: 'Error creating blog. ' + error });
+	}
+  };
 
 const getBlog = (req, res) => {
 	const id = req.params.id;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import Admindashboard from '../../pages/Dashboard/Admindashboard/Admindashboard';
 import Dashboard from '../../pages/Dashboard/Dashboard';
 

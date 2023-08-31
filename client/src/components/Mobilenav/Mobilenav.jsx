@@ -1,10 +1,8 @@
-import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Mobilenav.scss";
 
 const Mobilenav = ({handleMobileOpen,mobileOpen}) => {
-  const [login, setLogin] = useState(true);
 
   return (
     <>

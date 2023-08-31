@@ -10,17 +10,13 @@
   }
   background-color: #19A7CE;
   height: 16vh;
-  .muinavbar{
-    @include md{
-      // display: none;
-    }
-  }
   .logo {
-    margin-left: 20px;
+    height: -webkit-fill-available;
+    width: 20%;
     img{
-      width: 40%;
+      height: -webkit-fill-available;
       @include sm{
-        width: 40%;
+        height: -webkit-fill-available;
         position: absolute;
         right: 0rem;
         top: 0rem;
@@ -34,13 +30,14 @@
     }
     display: flex;
     width: 100%;
+    height: -webkit-fill-available;
     justify-content: flex-end;
+    align-items: center;
     .navitems {
       display: flex;
       list-style: none;
       position: relative;
       gap: 20px; 
-      margin-right: 5rem;
       li a {
         color: white;
         text-decoration: none;
@@ -64,8 +61,6 @@
       }
     }
     .logButtons{
-      margin: 0 40px 0 20px;
-      margin-left: -4rem;
       Button{
         background-color: #3f0086;
         margin-left: 10px;

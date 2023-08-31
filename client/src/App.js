@@ -17,7 +17,8 @@ import Mobilenav from "./components/Mobilenav/Mobilenav";
 import MyEditor from "./components/MyEditor/MyEditor";
 import BlogsTableMobileView from "./components/BlogsTableMobileView/BlogsTableMobileView";
 import { useSelector } from "react-redux";
-import Protectedroute from "./components/Protectedroutes/Protectedroute"; 
+import Protectedroute from "./components/Protectedroutes/Protectedroute";
+import BlogList from "./components/BlogList/BlogList";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/University" element={<University />} />
           <Route path="/editor" element={<MyEditor />} />
+          <Route path="/blogList" element={<BlogList />} />
           <Route path="/singleblog/:id" element={<Singleblog />} />
           <Route path="/createblog" element={<Createblog />} />
           <Route path="/createuser" element={<Createuser />} />

@@ -103,6 +103,9 @@
             background-color: rgb(218, 251, 255);
             color: #00bef3;
           }
+          &:disabled{
+            opacity: 0.3;
+          }
         }
 
 

@@ -6,11 +6,13 @@ const blogRouter = require("./blogRouter");
 const adminRouter = require("./adminRouter");
 const organizationRouter = require("./organizationRouter");
 const profileRoutes = require("./profileRoutes");
+const CkeditorBlogRouter = require('./CkeditorBlogRouter');
 
 router.use("/user", userRouter);
 router.use("/blog", blogRouter);
 router.use("/user", profileRoutes);
 router.use("/", organizationRouter);
 router.use("/admin", adminRouter);
+router.use('/blog', CkeditorBlogRouter);
 
 module.exports = router;

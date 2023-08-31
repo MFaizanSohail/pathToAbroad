@@ -55,6 +55,10 @@ const BlogSchema = new mongoose.Schema({
     type: String, 
     required: true,
   },
+  organization: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Organization",
+  },
 });
 
 const BlogModel = mongoose.model("Blog", BlogSchema);
