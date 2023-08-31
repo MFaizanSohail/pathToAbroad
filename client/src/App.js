@@ -16,9 +16,8 @@ import Admindashboard from "./pages/Dashboard/Admindashboard/Admindashboard";
 import Mobilenav from "./components/Mobilenav/Mobilenav";
 import MyEditor from "./components/MyEditor/MyEditor";
 import BlogsTableMobileView from "./components/BlogsTableMobileView/BlogsTableMobileView";
-import { Provider, useSelector } from "react-redux";
-import Protectedroute from "./components/Protectedroutes/Protectedroute";
-import { store } from "./store";
+import { useSelector } from "react-redux";
+import Protectedroute from "./components/Protectedroutes/Protectedroute"; 
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);

@@ -4,8 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Sidebar from "../Sidebar/Sidebar";
 import { Button } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import {data} from '../StaticData/data'
+import { useLocation } from "react-router-dom"; 
 
 const Singleblog = () => {
   const location= useLocation()

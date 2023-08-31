@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 export default function Muinavbar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleMobileOpen = () => {
-    if (mobileOpen == true) {
+    if (mobileOpen === true) {
       setMobileOpen(false);
     } else {
       setMobileOpen(true);
@@ -43,7 +43,7 @@ export default function Muinavbar() {
 
   return (
     <div className="muinavbar"> 
-      {mobileOpen == true ? (
+      {mobileOpen === true ? (
         <Muinavbar
           mobileOpen={mobileOpen}
           handleMobileOpen={handleMobileOpen}
