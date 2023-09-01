@@ -31,8 +31,8 @@ export default function Muinavbar() {
   };
 
   const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+    <Box className='mui'
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 180, backgroundColor:'#19A7CE' }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -46,8 +46,7 @@ export default function Muinavbar() {
       {mobileOpen === true ? (
         <Muinavbar
           mobileOpen={mobileOpen}
-          handleMobileOpen={handleMobileOpen}
-          className="mobilenav"
+          handleMobileOpen={handleMobileOpen} 
         />
       ) : (
         ""

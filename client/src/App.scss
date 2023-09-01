@@ -1,4 +1,7 @@
 @import './css-config/mixins.scss';
+*{
+    scroll-behavior: smooth;
+}
 @include sm{
     ::-webkit-scrollbar{
         display: none;

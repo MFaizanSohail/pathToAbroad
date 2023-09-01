@@ -1,19 +1,32 @@
 import React from "react";
 import "./Navbar.scss";
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
-import { Link } from "react-router-dom"; 
-import Muinavbar from "../Muinavbar/Muinavbar"; 
+import { Link } from "react-router-dom";
+import Muinavbar from "../Muinavbar/Muinavbar";
 import { useSelector } from "react-redux";
 
+const LoginOut = () => {
+  return (
+    <ul className="logButtons">
+      <li className="signup" color="inherit">
+        <Link to="/signup">Sign Up </Link>
+      </li>
+      <li className="signin" color="inherit">
+        <Link to="/login">Sign In </Link>
+      </li>
+    </ul>
+  );
+};
+
+
 const Navbar = ({ signup }) => {
-  // const [login,setLogin]=useState(true)
-  const {isAuthenticated}=useSelector((state)=> state.root)
-  
+  const { isAuthenticated } = useSelector((state) => state.root);
+
   return (
     <Box>
       <AppBar position="static">
         <Toolbar className="navbar">
-          <Muinavbar className="muinavbar"/>
+          <Muinavbar className="muinavbar" />
           <div className="logo">
             <Link to="/">
               <img src={"../../img/logowhite.png"} alt="" />
@@ -39,20 +52,11 @@ const Navbar = ({ signup }) => {
                 <li>
                   <Link to="/contact">Contact us</Link>
                 </li>
-              {isAuthenticated && <>  <li>
+                <li>
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
-                <li><img className="profile" src="/img/contact.png" alt="" /></li></>}
+                <LoginOut/>
               </ul>
-              {!isAuthenticated && <div className="logButtons">
-                <Button className="signup" color="inherit">
-                  <Link to="/signup">Sign Up </Link>
-                </Button>
-                <Button className="signin" color="inherit">
-                  <Link to="/login">Sign In </Link>
-                </Button>
-              </div>}
-            
             </div>
           )}
         </Toolbar>

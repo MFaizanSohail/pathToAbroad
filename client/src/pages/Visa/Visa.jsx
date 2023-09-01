@@ -53,8 +53,8 @@ const Visa = () => {
           <Countryvisa />
           <Countryvisa />
         </div>
-      </div>
         <Sidebar className="sidebar" />
+      </div>
       <Footer />
     </div>
   );

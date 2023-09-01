@@ -18,6 +18,7 @@ import MyEditor from "./components/MyEditor/MyEditor";
 import BlogsTableMobileView from "./components/BlogsTableMobileView/BlogsTableMobileView";
 import { useSelector } from "react-redux";
 import Protectedroute from "./components/Protectedroutes/Protectedroute";
+import Scroll from "./components/Scrolltop/Scroll";
 import BlogList from "./components/BlogList/BlogList";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div>
+      <Scroll/>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -72,6 +74,7 @@ function App() {
           />
         </Routes>
       </Router>
+      
     </div>
   );
 }

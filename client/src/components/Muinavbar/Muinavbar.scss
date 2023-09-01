@@ -1,17 +1,19 @@
-@import '../../css-config//mixins.scss';
-.muinavbar{
-    @include md{
-        display: none;
+@import "../../css-config//mixins.scss";
+.muinavbar {
+  @include md {
+    display: none;
+  }
+  .menuicon {
+    @include md {
+      display: none;
     }
-.menuicon{
-    @include md{
-        display: none;
-    }
-    color: white;  
+    color: white;
+  }
 }
-.MuiPaper-root{
-    width: 50%;
-    background-color: #19a7ce !important;
-}
-    
+
+.MuiDrawer-root {
+  .MuiPaper-root {
+    background-color: #19a7ce;
+    width: 10rem;
+  }
 }

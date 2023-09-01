@@ -57,8 +57,8 @@ const University = () => {
           <Countryuni />
           <Countryuni />
         </div>
-      </div>
         <Sidebar className="sidebar" />
+      </div>
       <Footer />
     </div>
   );

@@ -1,0 +1,25 @@
+.scroll{
+    position: absolute;
+    border: 1px solid #19a7ce;
+    border-radius: 50%;
+    color: #19a7ce;
+    font-size: 2rem;
+    background-color: white;
+    padding: .5rem;
+    right: 1rem;
+    bottom: 1rem;
+    position: fixed;
+    z-index: 10; 
+    box-shadow: 2px 5px 8px 2px;
+    cursor: pointer;
+    svg{
+        font-size: 2.5rem;
+        animation: movingCursor .9s ease-in-out alternate-reverse infinite;
+    } 
+}
+
+
+@keyframes movingCursor {
+    0% {transform: translatey(7px);}
+    100% {transform: translatey(-7px);}
+  }
