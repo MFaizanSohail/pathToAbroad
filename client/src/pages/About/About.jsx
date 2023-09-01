@@ -64,10 +64,8 @@ const About = () => {
             empowerment, collaboration, and discovery as we continue to shape
             the future of insightful connections.
           </p>
-        </div>
-        <div className="sidebar">
+        </div>        
           <Sidebar />
-        </div>
       </div>
       <Footer />
     </div>
