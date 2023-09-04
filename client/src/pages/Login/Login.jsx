@@ -5,6 +5,7 @@ import { Link, Navigate } from "react-router-dom";
 import { loginSchema } from "./LoginSchema";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import "./Login.scss"
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -32,7 +33,8 @@ const Login = () => {
 					setTimeout(() => {
 						setIsLoading(false);
 						if (response.data.status === "success") {
-							dispatch({type:"login"});
+							console.log(response);
+							dispatch({ type: "login" });
 							setLoginSuccess(true);
 						} else {
 							setErrorMessage(response.data.message);
@@ -46,7 +48,7 @@ const Login = () => {
 		});
 
 	return (
-		<div className="signupform">
+		<div className="signinform">
 			<div className="navbar">
 				<Navbar signup={"Log In"} />{" "}
 			</div>
@@ -59,6 +61,9 @@ const Login = () => {
 						/>
 					</div>
 					<form className="rightside" onSubmit={handleSubmit}>
+						<div className="mob-heading">
+							<h1>Login</h1>
+						</div>
 						<input
 							placeholder="Email Address"
 							id="email"

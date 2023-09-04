@@ -2,7 +2,6 @@ import React from "react";
 import "./Contact.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Messagegreet from "./Message_greet/Messagegreet";
 import { Link } from "react-router-dom";
 
 const Contact = () => {

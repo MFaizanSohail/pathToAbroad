@@ -13,6 +13,6 @@ router.use("/blog", blogRouter);
 router.use("/user", profileRoutes);
 router.use("/", organizationRouter);
 router.use("/admin", adminRouter);
-router.use('/blog', CkeditorBlogRouter);
+router.use('/blogs', CkeditorBlogRouter);
 
 module.exports = router;

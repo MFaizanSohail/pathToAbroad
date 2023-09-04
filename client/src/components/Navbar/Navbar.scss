@@ -1,21 +1,46 @@
 @import '../../css-config//mixins.scss';
+
 .navbar {
-  @include sm{
+  @include sm {
     overflow: hidden;
   }
-  .signlog{
+
+  font-size: 1rem;
+
+  .signlog {
+    @include sm {
+      display: none;
+    }
+  }
+
+  .logging-page {
+    display: flex;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    align-items: center;
+    justify-content: center;
+
+    .signlog-right {
+      width: 20%;
+      justify-content: space-evenly;
+    }
+
     @include sm{
       display: none;
     }
   }
+
   background-color: #19A7CE;
   height: 16vh;
+
   .logo {
     height: -webkit-fill-available;
     width: 20%;
-    img{
+
+    img {
       height: -webkit-fill-available;
-      @include sm{
+
+      @include sm {
         height: -webkit-fill-available;
         position: absolute;
         right: 0rem;
@@ -23,21 +48,32 @@
       }
     }
   }
+
   width: 100%;
+
   .nav {
-    @include sm{
+    @include sm {
       display: none;
     }
+
     display: flex;
     width: 100%;
     height: -webkit-fill-available;
     justify-content: flex-end;
     align-items: center;
+
     .navitems {
       display: flex;
       list-style: none;
       position: relative;
-      gap: 20px;  
+      gap: 20px;
+      align-items: center;
+
+      @include md {
+        font-size: 0.7rem;
+        gap: 10px;
+      }
+
       li a {
         color: white;
         text-decoration: none;
@@ -45,11 +81,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        &:hover{
+
+        &:hover {
           color: #c5c5c5;
         }
       }
-      img{
+
+      img {
         position: absolute;
         width: 3rem;
         height: 3rem;
@@ -60,21 +98,32 @@
         cursor: pointer;
       }
     }
-    .logButtons{
-      Button{
+
+    .logButtons {
+      display: flex;
+      gap: 20px;
+      @include md{
+        gap: 10px;
+      }
+      
+      button {
         background-color: #3f0086;
-        margin-left: 10px;
         border-radius: 33px;
-        padding: 4px;
-        font-size: 13px;
-        
-        width: 80px;
-        a{
+        padding: 0.2rem 0.6rem ;
+        font-size: 1rem;
+        border: 1px solid #3f0086;
+
+       
+        @include md{
+          font-size: 0.7rem;
+        }
+
+        a {
           text-decoration: none;
           color: white;
         }
-        &:hover{
-          padding: 3px;
+
+        &:hover {
           border: 1px solid white;
           background-color: #19A7CE;
         }
