@@ -39,8 +39,8 @@
       background-image: linear-gradient(to right, #068fb1, #2ed2ff);
 
       @include sm {
-        width: 80%;
-        height: 70%;
+        width: 70%;
+        height: 85%;
       }
 
       .leftside {
@@ -60,14 +60,15 @@
       .rightside {
         margin-top: -20px;
         width: 50%;
+        padding:1rem;
 
         .mob-heading{
           display: none;
           @include sm {
             display: flex;
             width: 100%;
-            color: black;
-            margin: 1rem 0 2rem 0;
+            color: white;
+            margin: 0.5rem 0 2rem 0;
             justify-content: center;
           }
         }
@@ -93,7 +94,7 @@
           text-align: center;
           outline: none;
           background: transparent;
-          border-bottom: 1px solid rgb(138, 138, 138);
+          border-bottom: 1px solid white;
           color: white;
           font-size: 14px;
         }

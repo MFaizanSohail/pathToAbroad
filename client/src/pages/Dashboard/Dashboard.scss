@@ -59,9 +59,7 @@
   }
 
   .filterContainer {
-    @include md {
       display: none;
-    }
   }
   .blogbody {
     @include sm {

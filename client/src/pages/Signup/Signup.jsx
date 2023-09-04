@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
-  const [registered, setRegistered] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+	const [registered, setRegistered] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-  useFormik({
-	  initialValues: {
+	const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+		useFormik({
+			initialValues: {
 				name: "",
 				email: "",
 				password: "",
@@ -34,7 +34,6 @@ const Signup = () => {
 
 					if (response.status === 200) {
 						setRegistered(true);
-
 					}
 
 					setIsLoading(false);
@@ -68,6 +67,9 @@ const Signup = () => {
 						<Registered />
 					) : (
 						<form className="rightside" onSubmit={handleSubmit}>
+						<div className="mob-heading">
+							<h1>Signup</h1>
+						</div>
 							<input
 								placeholder="Enter Your Name"
 								id="name"
