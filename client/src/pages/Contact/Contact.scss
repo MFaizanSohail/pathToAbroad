@@ -5,13 +5,16 @@
   height: 80vh; 
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: .5rem;
+  // justify-content: space-around;
+  padding: 0 5rem;
   @include sm{
     margin: 4rem 0; 
     padding: 1.3rem;
   }
   .left-contact { 
     width: 40%;
+    z-index: 10;
     @include sm{
       width: 95%;
     }
@@ -83,7 +86,7 @@
     }
     .profile{
         background-color: white;
-        width: 35rem; 
+        width: 100%; 
         overflow: hidden;
     }
   }

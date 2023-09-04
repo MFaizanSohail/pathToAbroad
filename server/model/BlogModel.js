@@ -49,16 +49,16 @@ const BlogSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    // required: true,
   },
   imageUrl: {
-    type: String, 
+    type: Array, 
     required: true,
   },
-  organization: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Organization",
-  },
+  // organization: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Organization",
+  // },
 });
 
 const BlogModel = mongoose.model("Blog", BlogSchema);

@@ -43,7 +43,7 @@ const Countryvisa = () => {
 
 const Visa = () => {
   return (
-    <div>
+    <div >
       <Navbar />
       <Hero />
       <div className="visa">

@@ -16,7 +16,7 @@
     .left-f {
         flex: 7;
         display: flex;
-        gap: 3rem;
+        // gap: 3rem;
         border-right: 1.5px solid white;
 
         @include sm {
@@ -30,7 +30,7 @@
 
         .aboutus {
             width: 60%;
-            padding: 35px;
+            padding: 0 0 0 3.4rem;
             display: flex;
             align-items: center;
             justify-content: center;

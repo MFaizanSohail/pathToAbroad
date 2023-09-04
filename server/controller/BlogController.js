@@ -1,13 +1,19 @@
 const BlogModel = require("../model/BlogModel");
+const cloudinary = require("cloudinary").v2;
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 const createBlog = async (req, res) => {
 	try {
 	  const { title, description, eligibility, details, applyingProcess, benefits, deadline, organization } = req.body;
 	  const imageUrl = []; 
+	  console.log("files ",req.files);
 	  for (const file of req.files) {
 		const result = await cloudinary.uploader.upload(file.path);
 		imageUrl.push(result.secure_url);
 	  }
+	  console.log("imageUrl", imageUrl);
+	  res.send(imageUrl)
 	  const newBlog = new BlogModel({ 
 		title, 
 		description, 
@@ -21,7 +27,7 @@ const createBlog = async (req, res) => {
 	  });
 	  await newBlog.save();
 	  
-	  res.status(201).json({ message: 'Blog Successfully Created!', blog: newBlog });
+	  res.status(201).json({ message: 'Blog Successfully Created!',blog:newBlog });
 	} catch (error) {
 	  console.error("Error creating blog:", error);
 	  res.status(500).json({ message: 'Error creating blog. ' + error });
