@@ -61,8 +61,8 @@ const Navbar = ({ signup }) => {
 									<Link to="/dashboard">Dashboard</Link>
 								</li>
 								<LoginOut />
-							</ul>
 								<Profile/>
+							</ul>
 						</div>
 					)}
 				</Toolbar>

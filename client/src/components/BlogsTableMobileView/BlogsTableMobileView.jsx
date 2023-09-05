@@ -1,6 +1,5 @@
 import React from "react";
 import "./BlogsTableMobileView.scss";
-import Filters from '../Filters/Filters'
 
 const BlogsTableMobileView = () => {
   return (
@@ -8,12 +7,12 @@ const BlogsTableMobileView = () => {
       <div className="filterContainer"> 
         <div className="container">
           <div className="title">
-            <span>Lorem ipsum dolor sit amet.</span>
-            <span>18/8/2023</span>
+            <div style={{width: "70%"}}>Lorem ipsum dolor sit amet.</div>
+            <div>18/8/2023</div>
           </div>
           <div className="country">
-            <span>France</span>
-            <span>Draft</span>
+            <div  style={{width: "70%"}}>France</div>
+            <div>Draft</div>
           </div>
         <div className="actions">
           <button>Edit</button>

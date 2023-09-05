@@ -20,7 +20,7 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="navbar-profile">
       <IconButton
         className="profile-container"
         size="large"
