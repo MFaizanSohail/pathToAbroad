@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import "./Dashboard.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import {
-  Box,
   Button,
-  IconButton,
-  InputBase,
-  Menu,
-  MenuItem,
   Paper,
   Table,
   TableBody,
@@ -15,8 +10,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Tooltip,
-  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";

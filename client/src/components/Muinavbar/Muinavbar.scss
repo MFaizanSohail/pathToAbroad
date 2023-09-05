@@ -2,19 +2,20 @@
 
 .muinavbar {
   display: none;
-  @include sm{
+
+  @include sm {
     display: block;
-  };
+  }
+
 
   .menuicon {
     color: white;
   }
-  }
-  
 
-.MuiDrawer-root {
+}
+.mobile-mui {
   .MuiPaper-root {
-    background-color: #19a7ce;
-    width: 10rem;
+    background-color: #19a7ce54;
+    width: -webkit-fill-available;
   }
 }

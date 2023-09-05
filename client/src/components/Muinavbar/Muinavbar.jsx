@@ -55,7 +55,7 @@ export default function Muinavbar() {
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}> <div className="menuicon"><MenuIcon fontSize="large" /></div> </Button>
           <Drawer
-          className="ghjk"
+          className="mobile-mui"
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}

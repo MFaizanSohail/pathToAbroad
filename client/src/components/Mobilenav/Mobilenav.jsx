@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Mobilenav.scss";
+import Profile from "../Profile/Profile";
 
 const Mobilenav = ({handleMobileOpen,mobileOpen}) => {
 
@@ -8,6 +9,7 @@ const Mobilenav = ({handleMobileOpen,mobileOpen}) => {
     <>
       <div className="mobnav" >
         <ul className="mobnavitems">
+          <Profile />
           <li>
             <Link to="/"> Home </Link>
           </li>

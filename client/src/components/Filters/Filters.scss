@@ -1,45 +1,64 @@
-@import '../../css-config/mixins.scss';
-.blogfilters {
-    display: flex;
-    margin-bottom: 1.5rem; 
-    gap: 3rem;
-    align-items: center;
-    @include sm{
-        flex-direction: column;
-        gap: .5rem;
-    }
-    .title{
-        display: flex;
-        gap: 2rem;
-        font-size: 1.4rem;
-        font-weight: bold;
-        align-items: center;
-        @include sm{
-            flex-direction: column;
-        }
-        input{
-            width: 17rem; 
-            padding: 8px 12px;
-            border: 2px solid #1976d2; 
-            @include sm{
-            width: 14rem; 
-            padding: 5px 8px;
-            border: 2px solid #1976d2; 
-            }
-        }
-        
-    }
-    .filterbtn{
-        display: flex; 
-        gap: 2rem;
-        @include sm{
-            flex-direction: column;
-            gap: 0;
-        }
-        .MuiAutocomplete-root{
-            height: 100%;
-            width: 16rem;
-            transform: scale(0.8);  
-        }
-    }
-}
+// @import '../../css-config/mixins.scss';
+// .blogfilters {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-items: center;
+  
+//     .title {
+//       font-size: 24px;
+//       margin-right: 20px;
+//     }
+  
+//     .filterbtn {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+  
+//       @include sm {
+//         flex-direction: column;
+//         align-items: flex-start;
+  
+//         .search-input {
+//           margin-top: 10px;
+//         }
+  
+//         .search-country,
+//         .search-status {
+//           margin-top: 10px;
+//         }
+//       }
+  
+//       .search-input {
+//         width: 300px;
+  
+//         @include sm {
+//           width: 100%;
+//         }
+  
+//         input {
+//           width: 100%;
+//           padding: 8px;
+//           border: 1px solid #ccc;
+//           border-radius: 4px;
+//         }
+//       }
+  
+//       .search-country,
+//       .search-status {
+//         margin-left: 20px;
+//         min-width: 150px;
+  
+//         @include sm {
+//           margin-left: 0;
+//           margin-top: 10px;
+//           min-width: unset;
+//           width: 100%;
+//         }
+  
+//         .MuiFormControl-root {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }

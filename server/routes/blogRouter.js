@@ -1,7 +1,6 @@
 const express = require("express");
 const blogRouter = express.Router();
 const Blog = require("../controller/BlogController");
-// const imageUpload = require("../middleware/imageUpload");
 const cloudinary = require("cloudinary").v2;
 cloudinary.config({
   cloud_name: "dgvf1akje",

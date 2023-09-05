@@ -13,7 +13,7 @@ const Singleblog = () => {
   const [myBlog, setMyBlog] = useState([]);
   console.log("My blog : ", myBlog);
   const fetchThroughId = () => {
-    let cntBlg = data.filter((item) => item.id == id);
+    let cntBlg = data.filter((item) => item.id === id);
     setMyBlog(cntBlg);
   };
 

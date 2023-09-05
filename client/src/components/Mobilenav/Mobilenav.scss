@@ -1,29 +1,25 @@
 @import '../../css-config/mixins.scss';
-.mobnav{
-    .mobnavitems{
-        width: 50%;
-        height: 100%;
-        background-color: #19a7ce;
+
+.mobnav {
+    .mobnavitems {
+        height: 100vh;
+        width: 100vw;
         z-index: 100;
-        position: absolute; 
-        padding: 1rem;
+        padding: 2rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5em; 
+        gap: 2rem;
+        font-size: 1.5rem;
         position: fixed;
-        li{
+
+        li {
             list-style: none;
-            a{
+
+            a {
                 width: fit-content;
                 text-decoration: none;
                 color: white;
             }
-        }
-        .mobsignup{
-
-        }
-        .mobsignin{
-
         }
     }
 

@@ -73,4 +73,3 @@ const Navbar = ({ signup }) => {
 
 export default Navbar;
 
-// import logo from '../../img/path-to-abroad-logo-removebg-preview.png'
