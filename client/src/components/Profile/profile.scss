@@ -1,22 +1,15 @@
-.logButtons{
-    margin: 0 40px 0 20px;
-    margin-left: -4rem;
-    Button{
-      background-color: #3f0086;
-      margin-left: 10px;
-      border-radius: 33px;
-      padding: 4px;
-      font-size: 13px;
-      
-      width: 80px;
-      a{
-        text-decoration: none;
-        color: inherit;
-      }
-      &:hover{
-        padding: 3px;
-        border: 1px solid white;
-        background-color: #19A7CE;
-      }
+@import "../../css-config/mixins.scss";
+
+.profile-container {
+  background: border-box !important;
+  .profile {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
     }
   }
+}

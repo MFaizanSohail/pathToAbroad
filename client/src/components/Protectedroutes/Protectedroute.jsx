@@ -7,7 +7,7 @@ const Protectedroute = ({isAuthenticated,isAdmin}) => {
     if(!isAuthenticated)
     {
       console.log("not authenticated");
-        return <Navigate to="/login" />
+        // return <Navigate to="/login" />
     } 
   return (
     <> {isAdmin ? <Admindashboard/> : <Dashboard/>}</>

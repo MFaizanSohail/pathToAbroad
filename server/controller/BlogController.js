@@ -13,7 +13,7 @@ const createBlog = async (req, res) => {
 		imageUrl.push(result.secure_url);
 	  }
 	  console.log("imageUrl", imageUrl);
-	  res.send(imageUrl)
+	//   res.send(imageUrl)
 	  const newBlog = new BlogModel({ 
 		title, 
 		description, 
@@ -29,7 +29,7 @@ const createBlog = async (req, res) => {
 	  
 	  res.status(201).json({ message: 'Blog Successfully Created!',blog:newBlog });
 	} catch (error) {
-	  console.error("Error creating blog:", error);
+	//   console.error("Error creating blog:", error);
 	  res.status(500).json({ message: 'Error creating blog. ' + error });
 	}
   };

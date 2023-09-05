@@ -8,6 +8,7 @@
     "@ckeditor/ckeditor5-react": "^6.1.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mantine/core": "^6.0.19",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.10.17",
     "@reduxjs/toolkit": "^1.9.5",

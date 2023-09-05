@@ -1,0 +1,66 @@
+@import '../../css-config/mixins.scss';
+.modal-container {
+    .mantine-Modal-header{
+        background-image: linear-gradient(to right, #068fb1, #2ed2ff) !important;
+    }
+    .mantine-Modal-body{
+        background-image: linear-gradient(to right, #068fb1, #2ed2ff) !important;
+    }
+    .mantine-Paper-root{
+      overflow-y: unset;
+    }
+
+  .infoForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: white;
+    padding: 0 2rem;
+    @include sm{
+      gap: 1rem;
+      padding: 0;
+    }
+    
+    h3 {
+    }
+    div {
+      display: flex;
+      gap: 1rem;
+      height: 2rem;
+      width: 100%;
+      @include sm{
+        flex-direction: column;
+        height: unset;
+      }
+    }
+    .infoInput {
+      border: none;
+      outline: none;
+      background-color: rgb(240, 233, 233);
+    //   color: rgba(40, 52, 62, 0.07);
+      // border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+      @include sm{
+        padding: 8px;
+      }
+    }
+    .infoButton {
+      color: inherit;
+      width: 6rem;
+      height: 2rem;
+      align-self: flex-end; 
+      background-color: #172cd1;
+      border: none;
+      outline: none;
+      &:hover{
+        cursor: pointer;
+        background-color: white;
+        color: #068fb1;
+        font-weight: bolder;
+      }
+    }
+  }
+}

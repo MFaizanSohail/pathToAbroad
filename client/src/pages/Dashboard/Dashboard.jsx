@@ -18,11 +18,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";
 import BlogsTableMobileView from "../../components/BlogsTableMobileView/BlogsTableMobileView";
 
-const Dashboard = () => { 
+const Dashboard = () => {
   const [verified, setVerified] = useState(true);
   return (
     <>
@@ -46,29 +46,29 @@ const Dashboard = () => {
 
         <div className="blogbtn">
           {" "}
-          <button>
-            <Link to={"/createblog"}>Create New Blog</Link>
-          </button>
-          <button>
-            <Link to={""}>View All Blogs</Link>
-          </button>
+          <Link to={"/createblog"}>
+            <button>Create New Blog</button>
+          </Link>
+          <Link to={""}>
+            <button>View All Blogs</button>
+          </Link>
         </div>
         {/* MOBILE RESPONSIVE DASHBOARD  */}
-        <Filters/>
-        <BlogsTableMobileView/> 
-        <BlogsTableMobileView/> 
-        <BlogsTableMobileView/> 
-        <BlogsTableMobileView/> 
-        <BlogsTableMobileView/> 
-        <BlogsTableMobileView/> 
+        <Filters />
+        <BlogsTableMobileView />
+        <BlogsTableMobileView />
+        <BlogsTableMobileView />
+        <BlogsTableMobileView />
+        <BlogsTableMobileView />
+        <BlogsTableMobileView />
 
-        <div className="blogbody"> 
+        <div className="blogbody">
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead >
+                <TableHead>
                   <TableRow>
-                    <TableCell sx={{ fontWeight: "bold", fontSize: "18px"}}>
+                    <TableCell sx={{ fontWeight: "bold", fontSize: "18px" }}>
                       Title
                     </TableCell>
                     <TableCell

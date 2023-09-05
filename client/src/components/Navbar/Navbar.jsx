@@ -1,9 +1,10 @@
 import React from "react";
 import "./Navbar.scss";
-import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import Muinavbar from "../Muinavbar/Muinavbar";
 import { useSelector } from "react-redux";
+import Profile from '../Profile/Profile'
 
 const LoginOut = () => {
 	return (
@@ -19,7 +20,7 @@ const LoginOut = () => {
 };
 
 const Navbar = ({ signup }) => {
-	const { isAuthenticated } = useSelector((state) => state.root);
+	// const { isAuthenticated } = useSelector((state) => state.root);
 
 	return (
 		<Box>
@@ -61,6 +62,7 @@ const Navbar = ({ signup }) => {
 								</li>
 								<LoginOut />
 							</ul>
+								<Profile/>
 						</div>
 					)}
 				</Toolbar>

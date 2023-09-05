@@ -19,7 +19,7 @@ app.use(Router);
 
 const connectdb = async () => {
 	try {
-		await mongoose.connect(process.env.MONGO_local);
+		await mongoose.connect(process.env.MONGO_URL);
 		console.log(`Connected to MongoDB: ${mongoose.connection.host}`);
 	} catch (err) {
 		console.error(err);
