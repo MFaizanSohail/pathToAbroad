@@ -7,13 +7,13 @@ const Footer = () => {
 		<div className="footer">
 			<div className="left-f">
 				<div className="aboutus">
-					<div className="abouttitle">About us</div>
+					<div className="abouttitle"><h3>About us</h3></div>
 					<div className="aboutdesc">
-						Our platform empowers bloggers and organizations to
+						<p>Our platform empowers bloggers and organizations to
 						share insights seamlessly. We provide verified source
 						tags, visa guidance, and personalized eligibility
 						checks, fostering a vibrant community of informed
-						contributors.
+						contributors.</p>
 					</div>
 				</div>
 				<ul className="pagelinks">
