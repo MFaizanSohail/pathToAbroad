@@ -1,8 +1,8 @@
 @import '../../css-config//mixins.scss';
 .mainbody{
     display: flex;
-    gap: 5rem;
-    padding: 0 5.6rem;
+    gap: 2rem;
+    padding: 0 3rem;
     margin: 3rem 0;
     @include sm{
         flex-direction: column;
@@ -11,9 +11,9 @@
         margin: 0;
     }
     .main-left{
-        flex: 3;
+        flex: 7;
     }
     .main-right{
-        flex: 1; 
+        flex: 3; 
     }
 }

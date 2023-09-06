@@ -3,10 +3,9 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 2rem;
     @include sm{
         gap: 2rem;
-        // padding: 2rem;
     }
 }
 .MuiListItem-root{

@@ -1,11 +1,13 @@
 @import '../../css-config//mixins.scss';
 
 .navbar {
+  height: 20vh !important;
+
   @include sm {
     overflow: hidden;
   }
 
-  font-size: 1rem;
+  font-size: 1.1rem;
 
   .signlog {
     @include sm {
@@ -70,7 +72,7 @@
       align-items: center;
 
       @include md {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         gap: 10px;
       }
 
@@ -99,12 +101,12 @@
         background-color: #3f0086;
         border-radius: 33px;
         padding: 0.2rem 0.6rem ;
-        font-size: 1rem;
+        font-size: 1.1rem;
         border: 1px solid #3f0086;
 
        
         @include md{
-          font-size: 0.7rem;
+          font-size: 0.9rem;
         }
 
         a {

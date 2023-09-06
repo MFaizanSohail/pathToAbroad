@@ -3,11 +3,11 @@
     overflow: hidden;
     display: flex;
     // max-width: 1200px;
-    padding: 0 5.6rem;
+    padding: 0 3rem;
     // align-items: center;
     justify-content: center;
     text-align: justify;
-    gap: 5rem; 
+    gap: 2rem; 
     margin: 3rem 0;
     @include sm{
         flex-direction: column;
@@ -21,7 +21,7 @@
             margin: 0;
         }
         // padding: 2rem;
-        flex: 3;
+        flex: 7;
         display: flex;
         gap: 2rem;
         flex-direction: column;
@@ -33,7 +33,7 @@
         }
     }
     .sidebar{
-        flex: 1; 
+        flex: 3; 
         @include sm{
             padding: 0;
         }

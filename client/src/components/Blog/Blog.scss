@@ -8,7 +8,7 @@
     color: #19a7ce;
     font-weight: bold !important;
     line-height: 1;
-    font-size: 14px;
+    font-size: 1rem;
     @include sm{
       font-size: 9px;
     }
@@ -24,18 +24,19 @@
   }
   .blogdetails {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 1rem;
+    align-items: center;
     @include sm{
       flex-direction: column-reverse;
     }
     .blogtext {
-      flex: 3;
+      flex: 7;
       text-align: justify;
     }
 
     .blogimg {
-      flex: 1;
+      flex: 3;
       width: 40%;
       height: 40%;
       @include sm{

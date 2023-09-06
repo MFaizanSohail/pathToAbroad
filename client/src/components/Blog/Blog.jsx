@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Blog.scss";
 import { Button } from "@mui/material";
 import { data } from "../StaticData/data";
@@ -11,7 +11,7 @@ const Blog = () => {
         <NavLink key={blog.id} style={{textDecoration:'none',color:'inherit'}} to={`/singleblog/${blog.id}`}>
           <div className="blog" >
             <div className="title">
-              <h1>{blog.title}</h1>
+              <h2>{blog.title}</h2>
             </div>
             <div className="tags">
               {" "}
