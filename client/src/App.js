@@ -8,7 +8,6 @@ import Messagegreet from "./pages/Contact/Message_greet/Messagegreet";
 import About from "./pages/About/About";
 import Visa from "./pages/Visa/Visa";
 import University from "./pages/University/University";
-import Singleblog from "./components/Singleblog/Singleblog";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Createblog from "./components/Createblog/Createblog";
 import Createuser from "./components/Createuser/Createuser";
@@ -20,11 +19,11 @@ import { useSelector } from "react-redux";
 import Protectedroute from "./components/Protectedroutes/Protectedroute";
 import Scroll from "./components/Scrolltop/Scroll";
 import BlogList from "./components/BlogList/BlogList";
+import SingleBlogs from "./pages/SingleBlogs/SingleBlogs";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
   const isAdmin=false;
-  console.log(isAuthenticated);
 
   return (
     <div>
@@ -41,7 +40,7 @@ function App() {
           <Route path="/University" element={<University />} />
           <Route path="/editor" element={<MyEditor />} />
           <Route path="/blogList" element={<BlogList />} />
-          <Route path="/singleblog/:id" element={<Singleblog />} />
+          <Route path="/singleblog/:id" element={<SingleBlogs />} />
           <Route path="/createblog" element={<Createblog />} />
           <Route path="/createuser" element={<Createuser />} />
 
