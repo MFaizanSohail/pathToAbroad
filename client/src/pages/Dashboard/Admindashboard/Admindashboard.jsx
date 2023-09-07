@@ -10,11 +10,17 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Filters from '../../../components/Filters/Filters'
 import BlogsTableMobileView from "../../../components/BlogsTableMobileView/BlogsTableMobileView";
+import { isLoggedIn } from "../../../utility/auth";
 
 const Admindashboard = () => {
+
+  if (!isLoggedIn()) {
+    return <Navigate replace to="/login" />;
+  }
+
   return (
     <> 
       <Navbar />

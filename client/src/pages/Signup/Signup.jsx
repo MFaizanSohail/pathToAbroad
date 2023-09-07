@@ -4,14 +4,14 @@ import { useFormik } from "formik";
 import { signUpSchema } from "./Schema";
 import Navbar from "../../components/Navbar/Navbar";
 import Registered from "./Registered";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import { isLoggedIn } from "../../utility/auth";
 
 const Signup = () => {
 	const [registered, setRegistered] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-
 	const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
 		useFormik({
 			initialValues: {
@@ -49,6 +49,10 @@ const Signup = () => {
 				}
 			},
 		});
+		
+	if (isLoggedIn()) {
+		return <Navigate replace to="/" />;
+	}
 
 	return (
 		<div className="signupform">
@@ -67,9 +71,9 @@ const Signup = () => {
 						<Registered />
 					) : (
 						<form className="rightside" onSubmit={handleSubmit}>
-						<div className="mob-heading">
-							<h1>Signup</h1>
-						</div>
+							<div className="mob-heading">
+								<h1>Signup</h1>
+							</div>
 							<input
 								placeholder="Enter Your Name"
 								id="name"
