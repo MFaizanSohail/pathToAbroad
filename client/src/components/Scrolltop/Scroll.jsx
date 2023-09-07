@@ -1,13 +1,35 @@
-import { ArrowUpward } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Scroll.scss";
+import { ArrowUpward } from "@mui/icons-material";
 
-const Scroll = () => { 
+const Scroll = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", checkScroll);
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+    };
+  }, []);
+
   const moveToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
-    <div className="scroll" onClick={() => moveToTop()}>
+    <div
+      className={`scroll ${isVisible ? "visible" : "hidden"}`}
+      onClick={() => moveToTop()}
+    >
       <ArrowUpward />
     </div>
   );

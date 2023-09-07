@@ -1,25 +1,41 @@
-.scroll{
+.scroll {
     position: absolute;
     border: 1px solid #19a7ce;
     border-radius: 50%;
     color: #19a7ce;
     font-size: 2rem;
     background-color: white;
-    padding: .5rem;
+    padding: 0.5rem;
     right: 1rem;
     bottom: 1rem;
     position: fixed;
-    z-index: 10; 
+    z-index: 10;
     box-shadow: 2px 5px 8px 2px;
     cursor: pointer;
-    svg{
-        font-size: 2.5rem;
-        animation: movingCursor .9s ease-in-out alternate-reverse infinite;
-    } 
-}
-
-
-@keyframes movingCursor {
-    0% {transform: translatey(7px);}
-    100% {transform: translatey(-7px);}
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transitions */
+  
+    svg {
+      font-size: 2.5rem;
+     
+    }
   }
+  
+  .hidden {
+    display: none;
+  }
+  
+ 
+  
+  .scroll:hover {
+    transform: scale(1.1); 
+    animation: movingCursor 0.9s ease-in-out alternate-reverse infinite;
+    @keyframes movingCursor {
+        0% {
+          transform: translateY(7px);
+        }
+        100% {
+          transform: translateY(-7px);
+        }
+  }
+}
+  
