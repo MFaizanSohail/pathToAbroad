@@ -25,6 +25,7 @@ const Profile = () => {
 		setModalOpened(true);
 	};
 
+	
 	const handleDashboard = () => {
 		navigate("/dashboard");
 		handleMenuClose();
