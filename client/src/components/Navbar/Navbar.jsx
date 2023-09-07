@@ -3,8 +3,8 @@ import "./Navbar.scss";
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import Muinavbar from "../Muinavbar/Muinavbar";
-import { useSelector } from "react-redux";
-import Profile from '../Profile/Profile'
+import Profile from "../Profile/Profile";
+import { isLoggedIn } from "../../utility/auth";
 
 const LoginOut = () => {
 	return (
@@ -20,7 +20,6 @@ const LoginOut = () => {
 };
 
 const Navbar = ({ signup }) => {
-	// const { isAuthenticated } = useSelector((state) => state.root);
 
 	return (
 		<Box>
@@ -57,11 +56,13 @@ const Navbar = ({ signup }) => {
 								<li>
 									<Link to="/contact">Contact us</Link>
 								</li>
-								<li>
-									<Link to="/dashboard">Dashboard</Link>
-								</li>
-								<LoginOut />
-								<Profile/>
+								{isLoggedIn() ? (
+									<>
+										<Profile />
+									</>
+								) : (
+									<LoginOut />
+								)}
 							</ul>
 						</div>
 					)}
@@ -72,4 +73,3 @@ const Navbar = ({ signup }) => {
 };
 
 export default Navbar;
-

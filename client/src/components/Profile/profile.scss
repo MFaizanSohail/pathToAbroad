@@ -3,6 +3,10 @@
 .navbar-profile {
   width: 3rem;
   height: 3rem;
+  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   .profile-container {
     background: border-box !important;
@@ -19,4 +23,26 @@
       }
     }
   }
+
+  .profile-menu {
+    top: 48px;
+    position: relative;
+    background-color: white;
+    color: black;
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-end;
+    .dropdown-menu{
+      width: -webkit-fill-available;
+    }    
+  }
+  .invisible{
+    display: none !important;
+  }
+
+
+
 }
+
+
