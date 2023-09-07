@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
 		  "jwt-secret-key",
 		  { expiresIn: "1d" }
 		);
-		res.cookie('token', token, { httpOnly: true, sameSite: 'strict' }); // Set the cookie here
+		res.cookie('token', token, { sameSite: 'strict' }); // Set the cookie here
 		return res.json({ status: "success", type: user.type });
 	  } else {
 		return res.status(401).json({ status: "error", message: "Invalid email or password." });
