@@ -1,43 +1,57 @@
 @import '../../css-config/mixins.scss';
 
 .contact {
-  overflow: hidden;
-  height: 80vh; 
+  height: 100%;
   display: flex;
+  margin: 2rem 0;
   align-items: center;
-  gap: .5rem;
-  // justify-content: space-around;
-  padding: 0 5rem;
-  @include sm{
-    margin: 4rem 0; 
-    padding: 1.3rem;
+  gap: 0.5rem;
+  padding: 0 3rem;
+
+  @include sm {
+    margin: 4rem 0;
+    padding: 0 2rem;
   }
-  .left-contact { 
-    width: 40%;
+
+  .left-contact {
+    flex: 4;
     z-index: 10;
-    @include sm{
-      width: 95%;
-    }
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    .details {
+    justify-content: center;
+
+    @include sm {
+      width: 90%;
+    }
+
+    @include sm {
+      width: 90%;
+    }
+
+    .name,
+    .email {
       display: flex;
       gap: 3rem;
-      @include sm{
+
+      @include sm {
         flex-direction: column;
       }
-      input{
+
+      input {
         width: 16rem;
-        @include sm{
+
+        @include sm {
           width: 100%;
         }
       }
     }
+
     label {
       display: flex;
       flex-direction: column;
       color: gray;
+
       input {
         margin-top: 10px;
         width: 100%;
@@ -48,20 +62,24 @@
         color: #0281ff;
       }
     }
+
     textarea {
       outline: none;
       border: 2px solid rgb(209, 209, 209);
       padding: 2rem;
     }
+
     .button {
       .submit {
         border: none;
         outline: none;
         padding: 10px 20px;
         width: 13vw;
-        @include sm{
+
+        @include sm {
           width: 100%;
-      }
+        }
+
         background-color: #2994ff;
         border-radius: 10px;
         cursor: pointer;
@@ -79,15 +97,19 @@
       }
     }
   }
-  .right-contact { 
-    background-color: white;  
-    @include sm{
+
+  .right-contact {
+    background-color: white;
+    flex: 6;
+
+    @include sm {
       display: none;
     }
-    .profile{
-        background-color: white;
-        width: 100%; 
-        overflow: hidden;
+
+    .profile {
+      background-color: white;
+      width: 100%;
+      overflow: hidden;
     }
   }
 }
