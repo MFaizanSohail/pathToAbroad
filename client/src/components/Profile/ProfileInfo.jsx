@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+import "./ProfileInfo.scss";
+import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
+import ProfileModal from "../ProfileModal/ProfileModal";
+
+const ProfileInfo = () => {
+  const [modalOpened, setModalOpened] = useState(false);
+  const handleEvents=()=>{ 
+    setModalOpened(true);
+  }
+  return (
+    <>
+    <Navbar/>
+      <div className="profileinfo-container">
+        <div className="info-content">
+          <div className="info-left">
+            <img src="/img/contact3.png" alt="" />
+            <div className="leftside-info">
+              John doe
+              <span className="email">johndoe@gmail.com</span>
+            </div>
+            <div className="edit-profile">
+              <button onClick={handleEvents}>Edit Profile</button>
+            </div>
+          </div>
+          <div className="info-right">
+            <h3>Profile settings</h3>
+            <div className="fullname">
+              Full Name
+              <span>John Doe jemini</span>
+            </div>
+            <div className="email">
+              Email Address
+              <span>JohnDoejemini@gmail.com</span>
+            </div>
+            <div className="organization">
+              Organization
+              <span>Novalogic</span>
+            </div>
+            <div className="info-about">
+              About
+              <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Molestias aperiam laudantium tempora doloribus consequatur
+                accusamus ipsum! Accusantium beatae eius possimus facilis totam
+                dolorum repudiandae similique quia rerum.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+      {/* <Footer/> */}
+    </>
+  );
+};
+
+export default ProfileInfo;

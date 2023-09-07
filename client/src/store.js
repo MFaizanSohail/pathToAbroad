@@ -1,9 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit'
 import { rootReducer } from './rootReducer'
+import { rolesReducer } from './rolesReducer'
+
 
 const store= configureStore({
     reducer:{
-        root:rootReducer
+        root:rootReducer,
+        role:rolesReducer
     }
 })
 
