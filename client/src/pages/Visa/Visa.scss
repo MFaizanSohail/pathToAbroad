@@ -1,63 +1,73 @@
 @import "../../css-config/mixins.scss";
-.visa { 
+
+.visa {
   display: flex;
-  padding: 0 5.6rem;
-  gap: 5rem;
+  padding: 0 3rem;
+  gap: 2rem;
   margin: 3rem 0;
   flex-wrap: wrap;
+
   @include sm {
     flex-direction: column;
     gap: 2rem;
     margin: 0;
     padding: 0 2rem;
   }
+
   .visa-content {
-    flex: 3;
+    flex: 7;
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+
     @include sm {
       // margin-top: -3rem;
     }
-    .visa-country { 
+
+    .visa-country {
       color: #19a7ce;
       font-weight: bold !important;
       line-height: 1;
-      font-size: 1.4rem;
-      @include sm{
+      
+      @include sm {
         font-size: 1rem;
       }
     }
+
     .visa-tags {
       font-weight: bold;
       display: flex;
       gap: 1rem;
+
       Button {
         @include sm {
           font-size: 10px;
         }
       }
     }
+
     .visa-policy {
       display: flex;
       gap: 30px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      flex-direction: row;
+
       @include sm {
         flex-direction: column;
         width: 100%;
       }
+
       .policy {
         @include sm {
-          // width: 100%;
+          width: 100%;
           text-align: center;
         }
+
         img {
-          width: 250px;
-          height: 140px;
-          @include sm {
-            width: 100%;
-          }
+          width: 100%;
+          height: -webkit-fill-available;
         }
+
         .visa-title {
           margin-top: 10px;
           font-weight: bold;
@@ -65,7 +75,8 @@
       }
     }
   }
+
   .sidebar {
-    flex: 1;
+    flex: 3;
   }
 }

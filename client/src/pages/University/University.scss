@@ -1,3 +1,82 @@
-.university{
-    height: 50vh;
+@import "../../css-config/mixins.scss";
+
+.univeristy {
+  display: flex;
+  padding: 0 3rem;
+  gap: 2rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+
+  @include sm {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+    padding: 0 2rem;
+  }
+
+  .univeristy-content {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    @include sm {
+      // margin-top: -3rem;
+    }
+
+    .univeristy-country {
+      color: #19a7ce;
+      font-weight: bold !important;
+      line-height: 1;
+
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+
+    .univeristy-tags {
+      font-weight: bold;
+      display: flex;
+      gap: 1rem;
+
+      Button {
+        @include sm {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .univeristy-policy {
+      display: flex;
+      gap: 30px;
+      flex-wrap: nowrap;
+      flex-direction: row;
+
+      @include sm {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .policy {
+        @include sm {
+          width: 100%;
+          text-align: center;
+        }
+
+        img {
+          width: 100%;
+          height: -webkit-fill-available;
+        }
+
+        .univeristy-title {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    flex: 3;
+  }
 }
