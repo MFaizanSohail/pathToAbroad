@@ -3,11 +3,13 @@ import "./Profile.scss";
 import { IconButton, MenuItem } from "@mui/material";
 import ProfileModal from "../ProfileModal/ProfileModal";
 import { logout } from "../../utility/auth";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
 	const [modalOpened, setModalOpened] = useState(false);
 	const [menuVisible, setMenuVisible] = useState(false);
 	const [menuAnchor, setMenuAnchor] = useState(null);
+	const navigate = useNavigate();
 
 	const handleMenuToggle = () => {
 		setMenuVisible(!menuVisible);
@@ -18,10 +20,15 @@ const Profile = () => {
 		handleMenuToggle();
 	};
 
-	const handleEvents = () => {
+	const handleProfile  = () => {
 		handleMenuClose();
 		setModalOpened(true);
 	};
+
+	const handleDashboard = () => {
+		navigate("/dashboard");
+		handleMenuClose();
+	  };
 
 	const handleLogout = () => {
 		logout();
@@ -43,10 +50,10 @@ const Profile = () => {
 				}`}
 				style={{ top: menuAnchor ? menuAnchor.clientHeight : "auto" }}
 			>
-				<MenuItem className="dropdown-menu" onClick={handleEvents}>
+				<MenuItem className="dropdown-menu" onClick={handleProfile}>
 					Profile
 				</MenuItem>
-				<MenuItem className="dropdown-menu" to="/dashboard">
+				<MenuItem className="dropdown-menu" onClick={handleDashboard}>
 					Dashboard
 				</MenuItem>
 				<MenuItem className="dropdown-menu" onClick={handleLogout}>
