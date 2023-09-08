@@ -21,13 +21,13 @@ const Profile = () => {
 	};
 
 	const handleProfile  = () => {
-		handleMenuClose();
+		navigate("/dashboard");
 		setModalOpened(true);
 	};
 
 	
-	const handleDashboard = () => {
-		navigate("/dashboard");
+	const handleNavigate = (url) => {
+		navigate(url);
 		handleMenuClose();
 	  };
 
@@ -51,10 +51,10 @@ const Profile = () => {
 				}`}
 				style={{ top: menuAnchor ? menuAnchor.clientHeight : "auto" }}
 			>
-				<MenuItem className="dropdown-menu" onClick={handleProfile}>
+				<MenuItem className="dropdown-menu" onClick={()=>handleNavigate("/profileinfo")}>
 					Profile
 				</MenuItem>
-				<MenuItem className="dropdown-menu" onClick={handleDashboard}>
+				<MenuItem className="dropdown-menu" onClick={()=>handleNavigate("/dashboard")}>
 					Dashboard
 				</MenuItem>
 				<MenuItem className="dropdown-menu" onClick={handleLogout}>

@@ -4,44 +4,46 @@ import { Button } from "@mui/material";
 // import { data } from "../StaticData/data";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
+import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
+import { useDispatch } from "react-redux";
+
 
 const Blog = () => {
-  const [data,setData]=useState([])
-  console.log(data);
-
+  const [data,setData]=useState([]);
+  const dispatch = useDispatch();
  const getData=()=>{
   axios.get('http://localhost:4000/blog/')
   .then((res)=> {
     setData(res.data) 
   })
-  .catch(function (error) {
-    // handle error
+  .catch(function (error) { 
     console.log(error);
   })
  }
 
  useEffect(()=>{
   getData()
+  fetchBlogs()
  },[])
   return (
     <>
-      {data.map((blog,id) => (
-        <NavLink key={id} style={{textDecoration:'none',color:'inherit'}} to={`/singleblog/${blog.id}`}>
+      {data.map((blog,i) => (
+        <NavLink key={i} style={{textDecoration:'none',color:'inherit'}} to={`/singleblog/${blog.id}`}>
           <div  className="blog" >
             <div className="title">
-              <h1>{blog?.title}</h1>
+              <h1>{blog?.title.slice(0,60)}...</h1>
             </div>
             <div className="tags">
               {" "}
               Tags :
               <Button size="small" variant="outlined">
-                {blog.tag?.country}
+                America
               </Button>{" "}
               <Button size="small" variant="outlined">
-                {blog.tag?.opurtunity}
+                Internship
               </Button>
               <Button size="small" variant="outlined">
-                {blog.tag?.university}
+                Harvard University
               </Button>{" "}
             </div>
             <div className="blogdetails">

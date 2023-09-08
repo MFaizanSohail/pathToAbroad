@@ -4,7 +4,7 @@ export const rolesReducer= createReducer({role:null},{
     user:(state)=>{
         state.role="user"
     }, 
-    dmin:(state)=>{
+    admin:(state)=>{
         state.role="admin"
     }
 })

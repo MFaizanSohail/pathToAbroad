@@ -1,24 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfileInfo.scss";
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
+import Navbar from "../Navbar/Navbar";
 import ProfileModal from "../ProfileModal/ProfileModal";
+import { userToken } from "../../utility/auth";
+import axios from "axios";
 
 const ProfileInfo = () => {
   const [modalOpened, setModalOpened] = useState(false);
-  const handleEvents=()=>{ 
+  const [singleUser, setSingleUser] = useState({});
+
+  const handleEvents = () => {
     setModalOpened(true);
-  }
+  };
+
+  console.log("user id : ", userToken(), "single User :", singleUser);
+
+  const getUser = () => {
+    axios
+      .get(`http://localhost:4000/user/getUser/${userToken()}`)
+      .then((res) => {
+        setSingleUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="profileinfo-container">
         <div className="info-content">
           <div className="info-left">
             <img src="/img/contact3.png" alt="" />
             <div className="leftside-info">
-              John doe
-              <span className="email">johndoe@gmail.com</span>
+              {singleUser.name}
+              <span className="email">{singleUser.email} asdfasfasdfasv asfasfasdf</span>
             </div>
             <div className="edit-profile">
               <button onClick={handleEvents}>Edit Profile</button>
@@ -28,11 +49,11 @@ const ProfileInfo = () => {
             <h3>Profile settings</h3>
             <div className="fullname">
               Full Name
-              <span>John Doe jemini</span>
+              <span> {singleUser.name}</span>
             </div>
             <div className="email">
               Email Address
-              <span>JohnDoejemini@gmail.com</span>
+              <span> {singleUser.email}</span>
             </div>
             <div className="organization">
               Organization

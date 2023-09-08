@@ -20,6 +20,7 @@ import Protectedroute from "./components/Protectedroutes/Protectedroute";
 import Scroll from "./components/Scrolltop/Scroll";
 import BlogList from "./components/BlogList/BlogList";
 import SingleBlogs from "./pages/SingleBlogs/SingleBlogs";
+import ProfileInfo from "./components/Profile/ProfileInfo";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
@@ -43,6 +44,7 @@ function App() {
           <Route path="/singleblog/:id" element={<SingleBlogs />} />
           <Route path="/createblog" element={<Createblog />} />
           <Route path="/createuser" element={<Createuser />} />
+          <Route path="/profileinfo" element={<ProfileInfo />} />
 
           <Route
             path="/dashboard"

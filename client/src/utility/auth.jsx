@@ -11,11 +11,12 @@ export const userToken = () => {
   
 	if (!authToken) {
 	  console.error("No authToken found.");
-	  return null; // Handle the absence of a token as needed
+	  return null; 
 	}
   
 	try {
 	  const decodedToken = jwtDecode(authToken);
+	  console.log(decodedToken);
 	  const userId = decodedToken.id;
 
 	  return userId;
