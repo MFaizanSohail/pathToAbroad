@@ -15,9 +15,29 @@ import { Link, Navigate } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";
 import BlogsTableMobileView from "../../components/BlogsTableMobileView/BlogsTableMobileView";
 import { isLoggedIn } from "../../utility/auth";
+import { useDispatch, useSelector } from "react-redux";
+import ProfileModal from "../../components/ProfileModal/ProfileModal";
+import Deletemsg from '../../components/ProfileModal/Deletemsg'
 
 
-const Dashboard = () => {
+
+const Dashboard = () => { 
+  const { blogsData } = useSelector((state) => state.blogs); 
+  const [nextPg, setNextPg] = useState(3);
+  let pg = 1;
+  const [modalOpened, setModalOpened] = useState(false); 
+  const [deleteModalOpened, setDeleteModalOpened] = useState(false); 
+  const [userId, setUserId] = useState(null); 
+  const handleDelete=(id)=>{
+    setUserId(id)
+    setDeleteModalOpened(true)
+  }
+
+  const handleEvents = () => {
+    setModalOpened(true);
+  };
+
+ 
   const [verified, setVerified] = useState(true);
 
   if (!isLoggedIn()) {
@@ -98,78 +118,18 @@ const Dashboard = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow>
+                  {blogsData.map((item,i)=>(<TableRow key={i}>
                     <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
+                      {item.title.slice(0,50)}...
                     </TableCell>
                     <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
+                    <TableCell align="right">{item.status}</TableCell>
+                    <TableCell align="right">{item.updatedDate}</TableCell>
                     <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
+                      <Button id="edit" onClick={handleEvents}>Edit</Button>
+                      <Button id="deletebtn" onClick={()=>handleDelete(item._id)}>Delete</Button>
                     </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit. Lorem, ipsum.
-                    </TableCell>
-                    <TableCell align="right">France</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">America</TableCell>
-                    <TableCell align="right">Private</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">England</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit Lorem, ipsum dolor.
-                    </TableCell>
-                    <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
+                  </TableRow>))}
                 </TableBody>
               </Table>
             </TableContainer>
@@ -182,6 +142,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+      <Deletemsg  userId={userId} deleteModalOpened={deleteModalOpened} setDeleteModalOpened={setDeleteModalOpened}/>
     </>
   );
 };

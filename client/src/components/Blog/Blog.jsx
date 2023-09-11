@@ -1,37 +1,49 @@
 import React, { useEffect, useState } from "react";
+
 import "./Blog.scss";
 import { Button } from "@mui/material";
 // import { data } from "../StaticData/data";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
+
 import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { STATUSES } from "../../reduxToolkit/blogsReducer";
+import Spiner from "../Spiner/Spiner";
+
 
 
 const Blog = () => {
-  const [data,setData]=useState([]);
   const dispatch = useDispatch();
- const getData=()=>{
-  axios.get('http://localhost:4000/blog/')
-  .then((res)=> {
-    setData(res.data) 
-  })
-  .catch(function (error) { 
-    console.log(error);
-  })
- }
+  const { blogsData, status } = useSelector((state) => state.blogs);
 
- useEffect(()=>{
-  getData()
-  fetchBlogs()
- },[])
+
+  console.log(blogsData, status);
+
+  useEffect(() => {
+    
+    dispatch(fetchBlogs());
+  }, []);
+
+  if (status == STATUSES.LOADING) { 
+    return (
+      <div className="loading">
+        <Spiner />
+      </div>
+    );
+  }
+
   return (
     <>
-      {data.map((blog,i) => (
-        <NavLink key={i} style={{textDecoration:'none',color:'inherit'}} to={`/singleblog/${blog.id}`}>
-          <div  className="blog" >
+      {blogsData?.map((blog, i) => (
+        <NavLink
+          key={i}
+          style={{ textDecoration: "none", color: "inherit" }}
+          to={`/singleblog/${blog._id}`}
+        >
+          <div className="blog">
             <div className="title">
-              <h1>{blog?.title.slice(0,60)}...</h1>
+              <h1>{blog?.title.slice(0, 60)}...</h1>
             </div>
             <div className="tags">
               {" "}
@@ -47,7 +59,9 @@ const Blog = () => {
               </Button>{" "}
             </div>
             <div className="blogdetails">
-              <span className="blogtext">{blog.description?.slice(0, 600)}...</span>
+              <span className="blogtext">
+                {blog.description?.slice(0, 600)}...
+              </span>
               <img src={blog?.imageUrl} className="blogimg" alt="" />
             </div>
           </div>

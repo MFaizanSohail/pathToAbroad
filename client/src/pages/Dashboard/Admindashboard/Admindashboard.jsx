@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 import {
   Button,
@@ -14,12 +14,37 @@ import { Link, Navigate } from "react-router-dom";
 import Filters from '../../../components/Filters/Filters'
 import BlogsTableMobileView from "../../../components/BlogsTableMobileView/BlogsTableMobileView";
 import { isLoggedIn } from "../../../utility/auth";
+import { useDispatch, useSelector } from "react-redux";
+import ProfileModal from "../../../components/ProfileModal/ProfileModal";
+import Deletemsg from '../../../components/ProfileModal/Deletemsg'
+import { fetchBlogs } from "../../../reduxToolkit/blogsReducer";
 
 const Admindashboard = () => {
+  const { blogsData } = useSelector((state) => state.blogs); 
+  const [nextPg, setNextPg] = useState(3);
+  const dispatch = useDispatch();
+  
+  let pg = 1;
+  const [modalOpened, setModalOpened] = useState(false); 
+  const [deleteModalOpened, setDeleteModalOpened] = useState(false); 
+  const [userId, setUserId] = useState(null); 
+  const handleDelete=(id)=>{
+    setUserId(id)
+    setDeleteModalOpened(true)
+  }
+
+  const handleEvents = () => {
+    setModalOpened(true);
+  };
+  
+  useEffect(() => {
+    dispatch(fetchBlogs());
+  },[])
 
   if (!isLoggedIn()) {
     return <Navigate replace to="/login" />;
   }
+ 
 
   return (
     <> 
@@ -37,12 +62,12 @@ const Admindashboard = () => {
 
         <div className="blogbtn">
           {" "}
-          <button>
-            <Link to={"/createblog"}>Create New Blog</Link>
-          </button>
-          <button>
-            <Link to={"/createuser"}>Create New User</Link>
-          </button>
+          <Link to={"/createblog"}>
+            <button>Create New Blog</button>
+          </Link>
+          <Link to={"/createuser"}>
+            <button>Create New User</button>
+          </Link>
         </div>
         <div style={{textAlign:'center'}}><h1>Latest Blogs</h1></div>
         <Filters/>
@@ -89,90 +114,36 @@ const Admindashboard = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow>
+                  {blogsData.map((item,i)=>(<TableRow key={i}>
                     <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
+                      {item.title.slice(0,50)}...
                     </TableCell>
                     <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
+                    <TableCell align="right">{item.status}</TableCell>
+                    <TableCell align="right">{item.updatedDate}</TableCell>
                     <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
+                      <Button id="edit" onClick={handleEvents}>Edit</Button>
+                      <Button id="deletebtn" onClick={()=>handleDelete(item._id)}>Delete</Button>
                     </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit. Lorem, ipsum.
-                    </TableCell>
-                    <TableCell align="right">France</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">America</TableCell>
-                    <TableCell align="right">Private</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit.
-                    </TableCell>
-                    <TableCell align="right">England</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Lorem ipsum dolor sit Lorem, ipsum dolor.
-                    </TableCell>
-                    <TableCell align="right">German</TableCell>
-                    <TableCell align="right">Public</TableCell>
-                    <TableCell align="right">Last update</TableCell>
-                    <TableCell align="right">
-                      <Button id="edit">Edit</Button>
-                      <Button id="deletebtn">Delete</Button>
-                    </TableCell>
-                  </TableRow>
+                  </TableRow>)).slice(nextPg - 3, nextPg)}
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
           <div className="pagination">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
+          {blogsData.map(
+              (item, n) =>
+                n % 3 == 0 && (
+                  <span key={n} onClick={() => setNextPg(n + 3)}>
+                    {pg++}
+                  </span>
+                )
+            )}
           </div>
         </div>
       </div>
+      <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
+      <Deletemsg blogDelete={true} userId={userId} deleteModalOpened={deleteModalOpened} setDeleteModalOpened={setDeleteModalOpened}/>
     </>
   );
 };

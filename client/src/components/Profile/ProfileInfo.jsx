@@ -39,7 +39,7 @@ const ProfileInfo = () => {
             <img src="/img/contact3.png" alt="" />
             <div className="leftside-info">
               {singleUser.name}
-              <span className="email">{singleUser.email} asdfasfasdfasv asfasfasdf</span>
+              <span className="email">{singleUser.email}</span>
             </div>
             <div className="edit-profile">
               <button onClick={handleEvents}>Edit Profile</button>

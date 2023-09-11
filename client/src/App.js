@@ -24,7 +24,7 @@ import ProfileInfo from "./components/Profile/ProfileInfo";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
-  const isAdmin=false;
+  const isAdmin=true;
 
   return (
     <div>

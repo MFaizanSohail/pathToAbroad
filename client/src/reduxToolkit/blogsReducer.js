@@ -9,12 +9,12 @@ export const STATUSES = Object.freeze({
 const blogsSlice = createSlice({
     name: 'blogs',
     initialState: {
-        data: [],
-        status: STATUSES.IDLE,
+        blogsData: [],
+        status: STATUSES.IDLE, 
     },
     reducers: {
         setBlogs(state, action) {
-            state.data = action.payload;
+            state.blogsData = action.payload;
         },
         setStatus(state, action) {
             state.status = action.payload;

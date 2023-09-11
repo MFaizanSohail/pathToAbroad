@@ -101,6 +101,10 @@
   .right-contact {
     background-color: white;
     flex: 6;
+    img{
+      position: relative;
+      bottom: -38px;
+    }
 
     @include sm {
       display: none;
