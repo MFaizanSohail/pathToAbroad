@@ -23,27 +23,30 @@
         line-height: normal;
         letter-spacing: -0.32px;
     }
-    .inputfield{
-        display: flex;
-        height: 40px;
-        
-        .input{
-            width: 70%;
-            border: 2px solid #19A7CE;
-            outline: none;
-            font-size: 15px;
-        }
-        .subscribe{
-            width: 30%;
-            border: none;
-            outline: none;
-            background-color: #19A7CE;
-            color: white;
-            cursor: pointer;
-            font-size: 15px;
-            overflow: hidden;
-            &:hover{
-                background-color: #01c7fd;
+    .inputfield{ 
+        div{
+            height: 1.5rem;
+            input{
+                width: 70%;
+                padding: 0rem 0.5rem !important;
+                border: 2px solid #19A7CE;
+                height: -webkit-fill-available;
+                outline: none;
+                font-size: 15px;
+            }
+            button{
+                width: 30%;
+                height: -webkit-fill-available;
+                border: none;
+                outline: none;
+                background-color: #19A7CE;
+                color: white;
+                cursor: pointer;
+                font-size: 15px;
+                overflow: hidden;
+                &:hover{
+                    background-color: #01c7fd;
+                }
             }
         }
     }
