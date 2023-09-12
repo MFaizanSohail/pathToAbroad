@@ -1,56 +1,113 @@
 import React from "react";
 import "./Contact.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+
+import  { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 function ContactForm() {
-	return (
-		<>
-			<div className="contact">
-				<div className="left-contact">
-					<div className="name">
-						<label htmlFor="name">
-							Name
-							<input type="text" placeholder="" />
-						</label>
-					</div>
-					<div className="email">
-						<label htmlFor="email">
-							Email
-							<input type="text" placeholder="" />
-						</label>
-					</div>
-					<div className="subject">
-						<label htmlFor="subject">
-							{" "}
-							Subject Line
-							<input type="text" placeholder="" />
-						</label>
-					</div>
+	const form = useRef();
+  const navigate = useNavigate();
+  const { values, handleChange, handleSubmit } = useFormik({
+	// FORMIK STATE VARIABLES 
+    initialValues: {
+      fname: "",
+      email: "",
+      subjectline: "",
+      message: "",
+    },
 
-					<div className="message">
-						<label>
-							{" "}
-							Message
-							<textarea
-								name="message"
-								id="message"
-								cols="30"
-								rows="6"
-							></textarea>
-						</label>
-					</div>
-					<div className="button">
-						<Link to="/messagegreet">
-							<button className="submit">Submit</button>
-						</Link>
-					</div>
-				</div>
-				<div className="right-contact">
-					<img src="/img/contact4.png" className="profile" alt="" />
-				</div>
-			</div>
-		</>
-	);
+	// ON SUBMIT FUNCTION  
+    onSubmit: async (values) => {
+		console.log(values);
+		emailjs.sendForm('service_y9779vk', 'template_a9oczb2', form.current, 'ffEA4ETQ_rX82YGVI')
+      .then((result) => {
+          console.log(result.text);
+		  navigate("/messagegreet")
+      }, (error) => {
+          console.log(error.text);
+      });
+
+	},
+  });
+  return (
+    <>
+      <form action="" ref={form} className="contact" onSubmit={handleSubmit}>
+        <div className="left-contact">
+          <div className="name">
+            <label htmlFor="name">
+              Name
+              <input
+                type="text"
+                name="fname"
+                required
+                minLength="4"
+                maxLength="20"
+                onChange={handleChange}
+                value={values.fname}
+              />
+            </label>
+          </div>
+          <div className="email">
+            <label htmlFor="email">
+              Email
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder=""
+                onChange={handleChange}
+                value={values.email}
+              />
+            </label>
+          </div>
+          <div className="subject">
+            <label htmlFor="subject">
+              {" "}
+              Subject Line
+              <input
+                onChange={handleChange}
+                value={values.subjectline}
+                type="text"
+                name="subjectline"
+                required
+                minLength="4"
+                maxLength="80"
+                placeholder=""
+              />
+            </label>
+          </div>
+
+          <div className="message">
+            <label>
+              {" "}
+              Message
+              <textarea type="text"
+                onChange={handleChange}
+                value={values.message}
+                required
+                minLength="10"
+                maxLength="1000"
+                name="message"
+                id="message"
+                cols="30"
+                rows="6"
+              ></textarea>
+            </label>
+          </div>
+          <div className="button">
+            <button type="submit" value="Submit" className="submit">
+              Submit
+            </button>
+          </div>
+        </div>
+        <div className="right-contact">
+          <img src="/img/contact4.png" className="profile" alt="" />
+        </div>
+      </form>
+    </>
+  );
 }
 
 export default ContactForm;

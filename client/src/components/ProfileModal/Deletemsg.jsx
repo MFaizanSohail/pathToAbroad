@@ -1,13 +1,13 @@
-import { Modal, useMantineTheme } from "@mantine/core";
 import './ProfileModal.scss'
 import axios from "axios";
 import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
 import { useDispatch } from "react-redux";
+import Modal from '@mui/material/Modal';
 
 function ProfileModal({ deleteModalOpened, setDeleteModalOpened,userId,getAllUsers,userDelete,blogDelete }) {
-  const dispatch=useDispatch()
-  const theme = useMantineTheme();
-  console.log('id:',userId);
+  const dispatch=useDispatch()  
+
+
   const handleDelete=(e)=>{
     e.preventDefault()
     setDeleteModalOpened(false)
@@ -32,19 +32,12 @@ function ProfileModal({ deleteModalOpened, setDeleteModalOpened,userId,getAllUse
   }
 
   return (
-    <Modal className="modal-container dltBtn-container"
-      overlaycolor={
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[9]
-          : theme.colors.gray[2]
-      }
-      overlayopacity={0.55}
-      overlayblur={3}
-      size="55%"
-      opened={deleteModalOpened}
-      onClose={() => setDeleteModalOpened(false)}
+    <Modal className="modal-container dltBtn-container" 
+    open={deleteModalOpened}
+    onClose={() => setDeleteModalOpened(false)}
     >
-      <form onSubmit={handleDelete} className="infoForm dltBtn-form">
+      <form onSubmit={handleDelete} className="infoForm dltBtn-form"> 
+      <div className="cancel-btn" style={{marginBottom:'2rem'}} onClick={() => setDeleteModalOpened(false)}>x</div>
         <h3>Please make sure you want to delete</h3>
         <button type="submit" className="button infoButton dltBtn" >Delete</button>
       </form>

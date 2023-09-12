@@ -1,26 +1,37 @@
 @import "../../css-config/mixins.scss";
-.modal-container {
-  .mantine-Modal-header {
-    background-image: linear-gradient(to right, #068fb1, #2ed2ff) !important;
-  }
-  .mantine-Modal-body {
-    background-image: linear-gradient(to right, #068fb1, #2ed2ff) !important;
-  }
-  .mantine-Paper-root {
-    overflow-y: unset;
-  }
+.modal-container { 
 
   .infoForm {
+    background-image: linear-gradient(to right, #068fb1, #2ed2ff) !important;
+    width: 50%;
+    margin: 3rem auto;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    color: white;
-    padding: 0 2rem;
+    color: white; 
+    position: relative;
     @include sm {
       gap: 1rem;
-      padding: 0;
+      width: 90%;
+      padding: 1rem;
+    }
+    .cancel-btn{
+      position: absolute;
+      top: 10px;
+      left: 90%;
+      font-size: 1rem;
+      cursor: pointer;   
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      &:hover{
+        background-color: rgb(228, 228, 228);
+        color: rgb(59, 59, 59);
+      }
     }
 
     h3 {
@@ -67,13 +78,12 @@
     }
   }
 }
-.dltBtn-container {
-  .mantine-Modal-inner{
-    top: 10rem;
-  }
+.dltBtn-container { 
   .dltBtn-form {
+    position: relative;
+    top: 30%;
     @include sm {
-      width: 17rem;
+      height: 10rem;
     }
     .dltBtn {
       background-color: red;

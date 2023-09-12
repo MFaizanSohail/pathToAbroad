@@ -1,11 +1,11 @@
-import { Modal, useMantineTheme } from "@mantine/core";
+// import { Modal, useMantineTheme } from "@mantine/core";
+import Modal from '@mui/material/Modal';
 import "./ProfileModal.scss";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
 
-function ProfileModal({ modalOpened, setModalOpened }) {
-  const theme = useMantineTheme();
+function ProfileModal({ modalOpened, setModalOpened }) { 
 
   const [getImage,setGetImage]=useState(""); 
   const { values, errors, handleChange, handleSubmit } = useFormik({
@@ -31,19 +31,12 @@ function ProfileModal({ modalOpened, setModalOpened }) {
 
   return (
     <Modal
-      className="modal-container"
-      overlaycolor={
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[9]
-          : theme.colors.gray[2]
-      }
-      overlayopacity={0.55}
-      overlayblur={3}
-      size="55%"
-      opened={modalOpened}
+      className="modal-container"  
+      open={modalOpened}
       onClose={() => setModalOpened(false)}
     >
       <form className="infoForm" onSubmit={handleSubmit}>
+        <div className="cancel-btn" onClick={() => setModalOpened(false)}>x</div>
         <h3>Your info</h3>
 
         <div>
