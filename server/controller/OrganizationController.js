@@ -13,7 +13,7 @@ const createOrganization = async (req, res) => {
 // Get all organizations
 const getAllOrganizations = async (req, res) => {
   try {
-    const organizations = await OrganizationModel.find();
+    const organizations = await OrganizationModel.find({}, { name: 1, country: 1, _id: 1, type: 1 });
     res.json(organizations);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -49,19 +49,29 @@ const deleteOrganization = async (req, res) => {
 // Edit an organization by ID
 const updateOrganization = async (req, res) => {
   try {
+    // Ensure req.body is an object, not an array
+    if (Array.isArray(req.body)) {
+      return res.status(400).json({ error: "Request body should be an object, not an array" });
+    }
+
+    const updatedData = req.body;
+
     const organization = await OrganizationModel.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      { $set: updatedData },
       { new: true }
     );
+
     if (!organization) {
       return res.status(404).json({ message: "Organization not found" });
     }
+
     res.json(organization);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+
 
 
 module.exports = {

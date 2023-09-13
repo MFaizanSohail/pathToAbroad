@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import { Autocomplete, CircularProgress } from "@mui/material";
 import axios from "axios";
+import { userTokenID } from "../../utility/auth";
 import "./Createblog.scss";
 
 const Createblog = () => {
@@ -21,13 +22,39 @@ const Createblog = () => {
 	const [deadlineValue, setDeadlineValue] = useState("");
 	const [benefitsValue, setBenefitsValue] = useState("");
 	const [selectedOrganization, setSelectedOrganization] = useState("");
+	const [selectedOrganizationId, setSelectedOrganizationId] = useState("");
+	const [organizationsData, setOrganizationsData] = useState([]);
+
 	const [status, setStatus] = useState("draft");
 
 	const fetchOrganizations = async () => {
 		setLoading(true);
-		const data = ["Organization A", "Organization B", "Organization C"];
-		setOrganizationslist(data);
-		setLoading(false);
+		try {
+			// Fetch organizations from the API
+			const response = await axios.get(
+				"http://localhost:4000/organization/getOrganization"
+			);
+			const organizationsData = response.data; // Assuming the response is an array of organizations
+
+			// Extract organization names and IDs
+			const organizationNames = organizationsData.map((org) => org.name);
+			const organizationIds = organizationsData.map((org) => org._id);
+			// Create an array of objects with name and id pairs
+			const organizationsWithIds = organizationNames.map(
+				(name, index) => ({
+					name,
+					id: organizationIds[index],
+				})
+			);
+
+			setOrganizationslist(organizationNames);
+			setOrganizationsData(organizationsWithIds); // Set the linked data
+			// console.log(organizationNames);
+			setLoading(false);
+		} catch (error) {
+			console.error("Error fetching organizations:", error);
+			setLoading(false);
+		}
 	};
 
 	useEffect(() => {
@@ -40,26 +67,33 @@ const Createblog = () => {
 
 	const handleCreate = async () => {
 		setIsSaving(true);
-		const formData = {
-			title: titleValue,
-			description: descriptionValue,
-			eligibility: eligibilityValue,
-			details: detailsValue,
-			applyingProcess: applyingProcessValue,
-			deadline: deadlineValue,
-			benefits: benefitsValue,
-			organization: selectedOrganization,
-			status: status,
-			image: image,
-		};
+		const userID = userTokenID();
+
+		const formData = new FormData();
+		formData.append("title", titleValue);
+		formData.append("description", descriptionValue);
+		formData.append("eligibility", eligibilityValue);
+		formData.append("details", detailsValue);
+		formData.append("applyingProcess", applyingProcessValue);
+		formData.append("deadline", deadlineValue);
+		formData.append("benefits", benefitsValue);
+		formData.append("organization", selectedOrganizationId); // Use selectedOrganizationId here
+		formData.append("user", userID);
+		formData.append("status", status);
+		formData.append("image", image[0]);
+
+		console.log("formData before sending:", formData);
 
 		try {
-			console.log(formData);
+			console.log(formData.data)
 			await axios.post("http://localhost:4000/blog/create", formData, {
 				withCredentials: true,
+				headers: {
+					"Content-Type": "multipart/form-data", // Set the content type for FormData
+				},
 			});
 			setIsSaving(false);
-			setImage("");
+			setImage([]); // Clear the selected images
 			setStatus("draft");
 		} catch (error) {
 			console.error("Error saving data:", error);
@@ -172,9 +206,18 @@ const Createblog = () => {
 							/>
 						)}
 						value={selectedOrganization}
-						onChange={(event, newValue) =>
-							setSelectedOrganization(newValue)
-						}
+						onChange={(event, newValue) => {
+							setSelectedOrganization(newValue);
+							console.log("Event = ", event, newValue);
+							const selectedOrgData = organizationsData.find(
+								(org) => org.name === newValue
+							);
+							if (selectedOrgData) {
+								setSelectedOrganizationId(selectedOrgData.id); // Set the organizationId here
+							} else {
+								setSelectedOrganizationId(""); // Handle the case where no organization is selected
+							}
+						}}
 					/>
 				</div>
 				<div className="bottom-section">
@@ -198,7 +241,7 @@ const Createblog = () => {
 						<label className="custom-file-upload">
 							<input
 								type="file"
-								onChange={(e) => setImage(e.target.files[0])} 
+								onChange={(e) => setImage([e.target.files[0]])}
 							/>
 							Upload Image: {image ? image.name : ""}
 							<span

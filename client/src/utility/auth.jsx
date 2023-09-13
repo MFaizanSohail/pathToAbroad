@@ -6,7 +6,7 @@ export const isLoggedIn = () => {
 	return !!authToken;
 };
 
-export const userToken = () => {
+export const userTokenID = () => {
 	const authToken = Cookies.get("token");
   
 	if (!authToken) {
@@ -16,7 +16,7 @@ export const userToken = () => {
   
 	try {
 	  const decodedToken = jwtDecode(authToken);
-	  console.log(decodedToken);
+	//   console.log(decodedToken);
 	  const userId = decodedToken.id;
 
 	  return userId;

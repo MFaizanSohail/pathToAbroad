@@ -13,16 +13,17 @@ const createBlog = async (req, res) => {
       applyingProcess,
       benefits,
       deadline,
+      user,
       organization,
+      status
     } = req.body;
+
     const imageUrl = [];
-    console.log("files ", req.files);
     for (const file of req.files) {
       const result = await cloudinary.uploader.upload(file.path);
       imageUrl.push(result.secure_url);
-    }
-    console.log("imageUrl", imageUrl);
-    //   res.send(imageUrl)
+    } 
+
     const newBlog = new BlogModel({
       title,
       description,
@@ -32,7 +33,9 @@ const createBlog = async (req, res) => {
       benefits,
       deadline,
       imageUrl,
+      user,
       organization,
+      status
     });
     await newBlog.save();
 
@@ -40,7 +43,7 @@ const createBlog = async (req, res) => {
       .status(201)
       .json({ message: "Blog Successfully Created!", blog: newBlog });
   } catch (error) {
-    //   console.error("Error creating blog:", error);
+    console.error(error)
     res.status(500).json({ message: "Error creating blog. " + error });
   }
 };

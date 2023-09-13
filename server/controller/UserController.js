@@ -2,6 +2,9 @@ const { response } = require("express");
 const UserModel = require("../model/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("cloudinary").v2;
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 const createUser = async (req, res) => {
 	try {

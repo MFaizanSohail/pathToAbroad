@@ -8,6 +8,7 @@ const OrganizationSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
+    enum: ["Business", "University", "Consultant"],
   },
   country: {
     type: String,
@@ -19,7 +20,6 @@ const OrganizationSchema = new mongoose.Schema({
   },
   province: {
     type: String,
-    required: true,
   },
   createON: {
     type: Date,

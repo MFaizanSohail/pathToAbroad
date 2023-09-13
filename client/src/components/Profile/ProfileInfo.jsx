@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProfileInfo.scss";
 import Navbar from "../Navbar/Navbar";
 import ProfileModal from "../ProfileModal/ProfileModal";
-import { userToken } from "../../utility/auth";
+import { userTokenID } from "../../utility/auth";
 import axios from "axios";
 
 const ProfileInfo = () => {
@@ -13,11 +13,9 @@ const ProfileInfo = () => {
     setModalOpened(true);
   };
 
-  console.log("user id : ", userToken(), "single User :", singleUser);
-
   const getUser = () => {
     axios
-      .get(`http://localhost:4000/user/getUser/${userToken()}`)
+      .get(`http://localhost:4000/user/getUser/${userTokenID()}`)
       .then((res) => {
         setSingleUser(res.data);
       })

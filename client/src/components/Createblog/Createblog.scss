@@ -28,17 +28,20 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    margin: 2rem 0.5rem;
+    margin: 1.5rem 0.5rem;
 
     .selectstatus {
-      width: 25%;
+      width: 50%;
     }
 
     .imgupload {
+      width: 50%;
+      
       .custom-file-upload {
         border: 1.5px solid #dedede;
         display: inline-block;
         padding: 1rem;
+        width: -webkit-fill-available;
         cursor: pointer;
 
         input {
@@ -66,7 +69,7 @@
       }
 
       .imgupload {
-        width: 60%;
+        width: 100%;
       }
     }
   }
