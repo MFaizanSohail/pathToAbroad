@@ -21,6 +21,9 @@ import Scroll from "./components/Scrolltop/Scroll";
 import BlogList from "./components/BlogList/BlogList";
 import SingleBlogs from "./pages/SingleBlogs/SingleBlogs";
 import ProfileInfo from "./components/Profile/ProfileInfo";
+import Internship from "./pages/Internship/Internship";
+import Jobs from "./pages/Jobs/Jobs";
+import Scholarship from "./pages/Scholarship/Scholarship";
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
@@ -45,6 +48,9 @@ function App() {
           <Route path="/createblog" element={<Createblog />} />
           <Route path="/createuser" element={<Createuser />} />
           <Route path="/profileinfo" element={<ProfileInfo />} />
+          <Route path="/internship" element={<Internship />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/scholarship" element={<Scholarship />} />
 
           <Route
             path="/dashboard"

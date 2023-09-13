@@ -84,40 +84,6 @@
     .table {
       border: 1px solid rgb(182, 182, 182);
     }
-
-    .pagination {
-      display: flex;
-      margin: 3rem;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      position: relative;
-
-      span {
-        border: 1px solid rgb(126, 126, 126);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        padding: 5px;
-        cursor: pointer;
-
-        &:hover {
-          opacity: 0.5;
-        }
-      }
-
-      &.pagination::after {
-        content: "";
-        width: 20rem;
-        height: 1px;
-        background-color: rgb(165, 164, 164);
-        position: absolute;
-        top: 3rem;
-        right: calc(50% - 10rem);
-      }
-    }
   }
 
   #deletebtn {
@@ -149,5 +115,38 @@
       color: #1976d2;
       background-color: white;
     }
+  }
+}
+.pagination {
+  display: flex;
+  margin: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+
+  span {
+    border: 1px solid rgb(126, 126, 126);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &.pagination::after {
+    content: "";
+    width: 20rem;
+    height: 1px;
+    background-color: rgb(165, 164, 164);
+    position: absolute;
+    top: 3rem;
+    right: calc(50% - 10rem);
   }
 }

@@ -45,16 +45,25 @@ const Navbar = ({ signup }) => {
 									<Link to="/"> Home </Link>
 								</li>
 								<li>
-									<Link to="/about"> About us</Link>
-								</li>
-								<li>
 									<Link to="/visa"> Visa </Link>
 								</li>
 								<li>
 									<Link to="/university">University</Link>
 								</li>
 								<li>
+									<Link to="/internship">Internship</Link>
+								</li>
+								<li>
+									<Link to="/jobs">Jobs</Link>
+								</li>
+								<li>
+									<Link to="/scholarship">Scholarship</Link>
+								</li>
+								<li>
 									<Link to="/contact">Contact us</Link>
+								</li>
+								<li>
+									<Link to="/about"> About us</Link>
 								</li>
 								{isLoggedIn() ? (
 									<>

@@ -1,7 +1,12 @@
-import { InputBase } from "@mui/material";
+import { InputBase, Pagination, Stack } from "@mui/material";
 import React from "react";
 
-const ResponsiveCreateUser = ({ users,Deletemsg,modalOpened,setModalOpened,deleteModalOpened,setDeleteModalOpened,ProfileModal }) => {
+const ResponsiveCreateUser = ({nextPg,setNextPg,userId, users,Deletemsg,modalOpened,setModalOpened,deleteModalOpened,setDeleteModalOpened,ProfileModal }) => {
+  const handlePagination=(e,p)=>{
+    console.log(p);
+    setNextPg(p*5)
+  }
+
   return (
     <>
       <div className="filterContainer">
@@ -20,7 +25,7 @@ const ResponsiveCreateUser = ({ users,Deletemsg,modalOpened,setModalOpened,delet
           />{" "}
           <span style={{ marginLeft: "1rem" }}>Search</span>
         </div>
-        {users.map((item,i)=>(<div key={i} className="container">
+        {users.map((item,i)=>(<div key={i} className="container" style={{margin:'2rem 0'}}>
           <div className="title">
             <span>{item.name}</span>
             <span>{item.email}</span>
@@ -33,10 +38,16 @@ const ResponsiveCreateUser = ({ users,Deletemsg,modalOpened,setModalOpened,delet
             <button onClick={()=> setModalOpened(true)}>Edit</button>
             <button onClick={()=>setDeleteModalOpened(true)}>Delete</button>
           </div>
-        </div>))}
+        </div>)).slice(nextPg - 5, nextPg)}
+        <div className="pagination">
+          <Stack spacing={2}>
+              <Pagination className="" color="primary" count={Math.ceil((users.length)/5)} onChange={handlePagination}/>
+            </Stack>
+          </div>
       </div>
+      
       <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
-      <Deletemsg deleteModalOpened={deleteModalOpened} setDeleteModalOpened={setDeleteModalOpened}/>
+      <Deletemsg userId={userId} userDelete={true} deleteModalOpened={deleteModalOpened} setDeleteModalOpened={setDeleteModalOpened}/>
     </>
   );
 };

@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Visa.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import Hero from "../../components/Hero/Hero";
-import CountryVisa from "../../components/visa/CountryVisa";
+import GeneralComponent from "../../components/Common/GeneralComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
 
 const Visa = () => {
+  
+  const dispatch = useDispatch();
+  const { blogsData, status } = useSelector((state) => state.blogs)
+  console.log(blogsData, status);
+
+  useEffect(() => {
+    
+    dispatch(fetchBlogs());
+  }, []);
   return (
-    <div >
+    <>
       <Navbar />
       <Hero />
-      <div className="visa">
-        <div className="visa-content">
-          <CountryVisa />
-          <CountryVisa />
-          <CountryVisa />
-          <CountryVisa />
-        </div>
-        <Sidebar className="sidebar" />
-      </div>
+      <GeneralComponent data={blogsData}/>
       <Footer />
-    </div>
+    </>
   );
 };
 

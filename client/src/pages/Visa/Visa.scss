@@ -28,7 +28,7 @@
       color: #19a7ce;
       font-weight: bold !important;
       line-height: 1;
-      
+
       @include sm {
         font-size: 1rem;
       }
@@ -49,8 +49,10 @@
     .visa-policy {
       display: flex;
       gap: 30px;
-      flex-wrap: nowrap;
-      flex-direction: row;
+      flex-wrap: wrap;
+      // width: 100%;
+      flex-direction: row; 
+      justify-content: space-evenly;
 
       @include sm {
         flex-direction: column;
@@ -58,14 +60,18 @@
       }
 
       .policy {
+        width: 30%;
         @include sm {
           width: 100%;
           text-align: center;
         }
-
-        img {
+        .img-container {
           width: 100%;
-          height: -webkit-fill-available;
+          height: 75%;
+          img {
+            width: 100%;
+            height: -webkit-fill-available;
+          }
         }
 
         .visa-title {
@@ -78,5 +84,22 @@
 
   .sidebar {
     flex: 3;
+  }
+}
+
+.pgStack {
+  margin-bottom: 3rem;
+  @include sm {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  .pagination {
+    width: 67%;
+    display: flex;
+    justify-content: flex-end;
+    @include sm {
+      width: unset;
+      justify-content: center;
+    }
   }
 }

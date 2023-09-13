@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./Createuser.scss";
+import "./Createuser.scss"; 
+
 import Navbar from "../Navbar/Navbar";
 import {
   Button,
+  Pagination,
   Paper,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -15,10 +18,14 @@ import ResponsiveCreateUser from "../ResponsiveCreateUser/ResponsiveCreateUser";
 import axios from "axios";
 import ProfileModal from "../ProfileModal/ProfileModal";
 import Deletemsg from '../ProfileModal/Deletemsg'
+import Filters from "../Filters/Filters";
 
 const Createuser = () => {
-  const [nextPg, setNextPg] = useState(3);
-  let pg = 1;
+  const [nextPg, setNextPg] = useState(5); 
+  const handlePagination=(e,p)=>{
+    console.log(p);
+    setNextPg(p*5)
+  }
   const [modalOpened, setModalOpened] = useState(false); 
   const [deleteModalOpened, setDeleteModalOpened] = useState(false); 
   const [userId, setUserId] = useState(null); 
@@ -58,13 +65,11 @@ const Createuser = () => {
         >
           <h1>User</h1>
         </div>
-        <ResponsiveCreateUser Deletemsg={Deletemsg} modalOpened={modalOpened} setModalOpened={setModalOpened}
+        <ResponsiveCreateUser setNextPg={setNextPg} nextPg={nextPg} Deletemsg={Deletemsg} modalOpened={modalOpened} setModalOpened={setModalOpened} userId={userId}
          deleteModalOpened={deleteModalOpened} ProfileModal={ProfileModal} setDeleteModalOpened={setDeleteModalOpened} users={users} />
         <div className="blogbody">
-          <div className="blogfilters">
-            <div className="filter">Filters</div> <label>Name</label>
-            <label>Email</label>
-            <label>Status</label>
+          <div className="blogfilters" style={{marginBottom:'2rem'}}> 
+          <Filters/>
           </div>
           <div className="table">
             <TableContainer sx={{ p: "2rem" }} component={Paper}>
@@ -120,20 +125,15 @@ const Createuser = () => {
                         </TableCell>
                       </TableRow>
                     ))
-                    .slice(nextPg - 3, nextPg)}
+                    .slice(nextPg - 5, nextPg)}
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
           <div className="pagination">
-            {users.map(
-              (item, n) =>
-                n % 3 == 0 && (
-                  <span key={n} onClick={() => setNextPg(n + 3)}>
-                    {pg++}
-                  </span>
-                )
-            )}
+          <Stack spacing={2}>
+              <Pagination className="" color="primary" count={Math.ceil((users.length)/5)} onChange={handlePagination}/>
+            </Stack>
           </div>
         </div>
       </div>

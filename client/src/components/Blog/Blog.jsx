@@ -9,21 +9,29 @@ import axios from "axios";
 import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { STATUSES } from "../../reduxToolkit/blogsReducer";
+
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack"; 
 import Spiner from "../Spiner/Spiner";
 
 
 
 const Blog = () => {
+  const [nextPg, setNextPg] = useState(10);   
+  const handlePagination=(e,p)=>{
+    console.log(p);
+    setNextPg(p*10)
+  } 
   const dispatch = useDispatch();
   const { blogsData, status } = useSelector((state) => state.blogs);
-
-
-  console.log(blogsData, status);
-
+  
   useEffect(() => {
-    
     dispatch(fetchBlogs());
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo(0, 500);
+  }, [nextPg]);
 
   if (status == STATUSES.LOADING) { 
     return (
@@ -66,7 +74,10 @@ const Blog = () => {
             </div>
           </div>
         </NavLink>
-      ))}
+      )).slice(nextPg - 10, nextPg)}
+      <Stack spacing={2}>
+        <Pagination className="homePagination" count={Math.ceil((blogsData.length)/10)} variant="outlined" shape="rounded" onChange={handlePagination}/>
+      </Stack>
     </>
   );
 };

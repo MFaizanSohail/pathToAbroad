@@ -43,7 +43,7 @@ const Profile = () => {
 				size="large"
 				onClick={handleMenuToggle}
 			>
-				<img className="profile" src="/img/contact.png" alt="" />
+				<img className="profile" src="/img/contact3.png" alt="" />
 			</IconButton>
 			<div
 				className={`profile-menu ${

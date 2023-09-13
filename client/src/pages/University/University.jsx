@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./University.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Hero from "../../components/Hero/Hero";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import CountryUniversity from "../../components/University/CountryUniversity";
+import Hero from "../../components/Hero/Hero"; 
+import GeneralComponent from "../../components/Common/GeneralComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBlogs } from "../../reduxToolkit/blogsReducer";
 
 const University = () => {
+  const dispatch = useDispatch();
+  const { blogsData, status } = useSelector((state) => state.blogs)
+  console.log(blogsData, status);
+
+  useEffect(() => {
+    
+    dispatch(fetchBlogs());
+  }, []);
   return (
     <div>
       <Navbar />
       <Hero />
-      <div className="univeristy">
-        <div className="univeristy-content">
-        <CountryUniversity />
-        <CountryUniversity />
-        <CountryUniversity />
-        <CountryUniversity />
-        </div>
-        <Sidebar className="sidebar" />
-      </div>
+      <GeneralComponent data={blogsData}/>
       <Footer />
     </div>
   );

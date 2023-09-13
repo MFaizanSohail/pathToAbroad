@@ -58,7 +58,7 @@ const Singleblog = () => {
               </Button>
             </div>
             <div className="blogauthor">
-              <img src="/img/contact2.png" alt="" />
+              <img src="/img/contact3.png" alt="" />
               <div className="name">{blog?.author}</div>
               <div className="timestamps">March 20,2023</div>
             </div>

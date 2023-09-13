@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 import {
   Button,
+  Pagination,
   Paper,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -21,7 +23,7 @@ import { fetchBlogs } from "../../../reduxToolkit/blogsReducer";
 
 const Admindashboard = () => {
   const { blogsData } = useSelector((state) => state.blogs); 
-  const [nextPg, setNextPg] = useState(3);
+  const [nextPg, setNextPg] = useState(10);
   const dispatch = useDispatch();
   
   let pg = 1;
@@ -36,6 +38,10 @@ const Admindashboard = () => {
   const handleEvents = () => {
     setModalOpened(true);
   };
+  const handlePagination=(e,p)=>{
+    console.log(p);
+    setNextPg(p*10)
+  }
   
   useEffect(() => {
     dispatch(fetchBlogs());
@@ -71,12 +77,11 @@ const Admindashboard = () => {
         </div>
         <div style={{textAlign:'center'}}><h1>Latest Blogs</h1></div>
         <Filters/>
+        
         {/* MOBILE RESPOSIVE ADMIN DASHBOARD  */}
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
-        <BlogsTableMobileView/>
+        <BlogsTableMobileView nextPg={nextPg} blogsData={blogsData}/> 
+
+
         <div className="blogbody"> 
         {/* DESKTOP RESPONSIVE DASHBORAD  */}
           <div className="table">
@@ -125,23 +130,26 @@ const Admindashboard = () => {
                       <Button id="edit" onClick={handleEvents}>Edit</Button>
                       <Button id="deletebtn" onClick={()=>handleDelete(item._id)}>Delete</Button>
                     </TableCell>
-                  </TableRow>)).slice(nextPg - 3, nextPg)}
+                  </TableRow>)).slice(nextPg - 10, nextPg)}
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
+        </div>
+      </div>
           <div className="pagination">
-          {blogsData.map(
+          {/* {blogsData.map(
               (item, n) =>
                 n % 3 == 0 && (
                   <span key={n} onClick={() => setNextPg(n + 3)}>
                     {pg++}
                   </span>
                 )
-            )}
+            )} */}
+            <Stack spacing={2}>
+              <Pagination className="" color="primary" count={Math.ceil((blogsData.length)/10)}   onChange={handlePagination}/>
+            </Stack>
           </div>
-        </div>
-      </div>
       <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened} />
       <Deletemsg blogDelete={true} userId={userId} deleteModalOpened={deleteModalOpened} setDeleteModalOpened={setDeleteModalOpened}/>
     </>
