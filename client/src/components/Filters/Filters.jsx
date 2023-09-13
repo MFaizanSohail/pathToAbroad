@@ -1,14 +1,8 @@
 import React from "react";
-import {
-	Box,
-	Typography,
-	InputBase,
-	Grid,
-	FormControl,
-	MenuItem,
-	Select,
-} from "@mui/material";
+import { Box, Typography, InputBase, Grid, FormControl } from "@mui/material";
 import "./Filters.scss";
+import CountrySelect from "../CountryList/CountryList";
+import StatusSelect from "../StatusSelect/StatusSelect";
 
 const Filters = () => {
 	return (
@@ -17,46 +11,30 @@ const Filters = () => {
 				Filters
 			</Typography>
 			<Grid container spacing={2} alignItems="center">
-				<Grid item xs={12} sm={6} md={4}>
-					<FormControl fullWidth variant="outlined">
+				<Grid item xs={12} sm={4}>
+					<FormControl variant="outlined" fullWidth>
 						<InputBase
 							fullWidth
+							labelId="Search-label"
+							id="Search"
 							placeholder="Search..."
-							variant="outlined"
-							size="small"
-							/* Add your search functionality here */
+							label="Status"
+							inputProps={{ "aria-label": "search" }}
+							style={{
+								paddingLeft: "0.5rem",
+								borderBottom: "1px solid #ced4da",
+								borderLeft: "1px solid #ced4da",
+							}}
 						/>
 					</FormControl>
 				</Grid>
-				<Grid item xs={12} sm={6} md={4}>
-					<FormControl fullWidth variant="outlined">
-						<Select
-							fullWidth
-							label="Country"
-							size="small"
-							variant="outlined"
-							/* Add your country dropdown options here */
-						>
-							<MenuItem value="">All</MenuItem>
-							<MenuItem value="USA">USA</MenuItem>
-							<MenuItem value="UK">UK</MenuItem>
-						</Select>
-					</FormControl>
+
+				<Grid item xs={12} sm={4}>
+					<CountrySelect />
 				</Grid>
-				<Grid item xs={12} sm={6} md={4}>
-					<FormControl fullWidth variant="outlined">
-						<Select
-							fullWidth
-							label="Status"
-							size="small"
-							variant="outlined"
-						>
-							<MenuItem value="">All</MenuItem>
-							<MenuItem value="draft">Draft</MenuItem>
-							<MenuItem value="public">Public</MenuItem>
-							<MenuItem value="private">Private</MenuItem>
-						</Select>
-					</FormControl>
+
+				<Grid item xs={12} sm={4}>
+					<StatusSelect value="" onChange={(event) => {}} />
 				</Grid>
 			</Grid>
 		</Box>

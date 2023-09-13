@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import { Autocomplete, CircularProgress } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { userTokenID } from "../../utility/auth";
 import "./Createblog.scss";
 
@@ -26,20 +27,18 @@ const Createblog = () => {
 	const [organizationsData, setOrganizationsData] = useState([]);
 
 	const [status, setStatus] = useState("draft");
+	const navigate = useNavigate();
 
 	const fetchOrganizations = async () => {
 		setLoading(true);
 		try {
-			// Fetch organizations from the API
 			const response = await axios.get(
 				"http://localhost:4000/organization/getOrganization"
 			);
-			const organizationsData = response.data; // Assuming the response is an array of organizations
+			const organizationsData = response.data;
 
-			// Extract organization names and IDs
 			const organizationNames = organizationsData.map((org) => org.name);
 			const organizationIds = organizationsData.map((org) => org._id);
-			// Create an array of objects with name and id pairs
 			const organizationsWithIds = organizationNames.map(
 				(name, index) => ({
 					name,
@@ -48,8 +47,7 @@ const Createblog = () => {
 			);
 
 			setOrganizationslist(organizationNames);
-			setOrganizationsData(organizationsWithIds); // Set the linked data
-			// console.log(organizationNames);
+			setOrganizationsData(organizationsWithIds);
 			setLoading(false);
 		} catch (error) {
 			console.error("Error fetching organizations:", error);
@@ -77,7 +75,7 @@ const Createblog = () => {
 		formData.append("applyingProcess", applyingProcessValue);
 		formData.append("deadline", deadlineValue);
 		formData.append("benefits", benefitsValue);
-		formData.append("organization", selectedOrganizationId); // Use selectedOrganizationId here
+		formData.append("organization", selectedOrganizationId);
 		formData.append("user", userID);
 		formData.append("status", status);
 		formData.append("image", image[0]);
@@ -85,16 +83,19 @@ const Createblog = () => {
 		console.log("formData before sending:", formData);
 
 		try {
-			console.log(formData.data)
-			await axios.post("http://localhost:4000/blog/create", formData, {
-				withCredentials: true,
-				headers: {
-					"Content-Type": "multipart/form-data", // Set the content type for FormData
-				},
-			});
-			setIsSaving(false);
-			setImage([]); // Clear the selected images
-			setStatus("draft");
+			const response = await axios.post(
+				"http://localhost:4000/blog/create",
+				formData,
+				{
+					withCredentials: true,
+					headers: {
+						"Content-Type": "multipart/form-data",
+					},
+				}
+			);
+			if (response.status === 201) {
+				navigate("/dashboard"); 
+			}
 		} catch (error) {
 			console.error("Error saving data:", error);
 			setIsSaving(false);

@@ -16,10 +16,29 @@ export const userTokenID = () => {
   
 	try {
 	  const decodedToken = jwtDecode(authToken);
-	//   console.log(decodedToken);
 	  const userId = decodedToken.id;
 
 	  return userId;
+	} catch (error) {
+	  console.error("Token decoding error:", error);
+	  return null; 
+	}
+  };
+
+
+  export const userType = () => {
+	const authToken = Cookies.get("token");
+  
+	if (!authToken) {
+	  console.error("No authToken found.");
+	  return null; 
+	}
+  
+	try {
+	  const decodedToken = jwtDecode(authToken);
+	  const userType = decodedToken.type;
+
+	  return userType;
 	} catch (error) {
 	  console.error("Token decoding error:", error);
 	  return null; 

@@ -6,7 +6,6 @@ import { loginSchema } from "./LoginSchema";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import "./Login.scss"
-import { isLoggedIn } from "../../utility/auth";
 
 
 const Login = () => {
@@ -49,9 +48,6 @@ const Login = () => {
 			},
 		});
 
-		if (isLoggedIn()) {
-			return <Navigate replace to="/" />;
-		}
 		
 	return (
 		<div className="signinform">

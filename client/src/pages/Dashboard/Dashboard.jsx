@@ -14,7 +14,6 @@ import {
 import { Link, Navigate } from "react-router-dom";
 import Filters from "../../components/Filters/Filters";
 import BlogsTableMobileView from "../../components/BlogsTableMobileView/BlogsTableMobileView";
-import { isLoggedIn } from "../../utility/auth";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileModal from "../../components/ProfileModal/ProfileModal";
 import Deletemsg from '../../components/ProfileModal/Deletemsg'
@@ -40,9 +39,6 @@ const Dashboard = () => {
  
   const [verified, setVerified] = useState(true);
 
-  if (!isLoggedIn()) {
-    return <Navigate replace to="/login" />;
-  }
 
   return (
     <>

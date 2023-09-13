@@ -6,7 +6,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Registered from "./Registered";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-import { isLoggedIn } from "../../utility/auth";
 
 const Signup = () => {
 	const [registered, setRegistered] = useState(false);
@@ -50,9 +49,6 @@ const Signup = () => {
 			},
 		});
 		
-	if (isLoggedIn()) {
-		return <Navigate replace to="/" />;
-	}
 
 	return (
 		<div className="signupform">
